@@ -8,6 +8,7 @@
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<!-- My CSS -->
 	<link rel="stylesheet" href="<?= base_url('assets/css/style.css'); ?>">
+	<link rel="stylesheet" href="<?= base_url('assets/css/modal.css'); ?>">
 
 	<title>AdminHub</title>
 </head>
@@ -132,6 +133,34 @@
 								<td>
 								<div style="padding-left: 15px;">
 								<img src="<?= base_url("/assets/gambar/nabil.jpg"); ?>">
+
+
+
+
+
+								
+ <!-- Trigger the Modal -->
+ <img id="myImg" src="img_snow.jpg" alt="Snow" style="width:100%;max-width:300px">
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- The Close Button -->
+  <span class="close">&times;</span>
+
+  <!-- Modal Content (The Image) -->
+  <img class="modal-content" id="img01">
+
+  <!-- Modal Caption (Image Text) -->
+  <div id="caption"></div>
+</div> 
+
+
+
+
+
+
+
 								</div>
 							</td>
 								<td style="padding-left: 20px;">Laki-laki</td>
@@ -173,5 +202,6 @@
 	
 
 	<script src="<?= base_url('assets/js/script.js'); ?>"></script>
+	<script src="<?= base_url('assets/js/modal.js'); ?>"></script>
 </body>
 </html>
