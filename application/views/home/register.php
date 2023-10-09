@@ -61,7 +61,7 @@
                                         name="username">
                                 </div>
                                 <div class="form-group mb-2">
-                                    <label for="" class="text-white py-1"> Kata Sandi *</label>
+                                    <label for="" class="text-white py-1"> Buat Kata Sandi *</label>
                                     <input class="form-control py-2" type="password" placeholder="Masukkan Kata Sandi"
                                         name="username">
                                 </div>
@@ -71,7 +71,7 @@
 
                             <div class="col-6">
                                 <div class="form-group mb-2">
-                                    <label for="pict" class="text-white py-1"> Ambil/Upload Foto Selfie * </label>
+                                    <label for="pict" class="text-white py-1"> Upload Foto Selfie dengan KTP * </label>
                                     <input type="file" class="form-control text-black mb-1" id="pict" name="gambar">
                                 </div>
                                 <div class="form-group mb-2">
@@ -80,7 +80,7 @@
                                 </div>
 
                                 <div class="form-group mb-2 text-white">
-                                    <label for="jk" class="py-1">Jenis Kelamin : </label> <br>
+                                    <label for="jk" class="py-1">Jenis Kelamin * </label> <br>
                                     <input type="radio" name="rdjeniskelamin" value="Laki-Laki" id="jk"
                                         class="form-check-input"> Laki-Laki
                                     <input type="radio" name="rdjeniskelamin" value="Perempuan"
@@ -89,7 +89,7 @@
                                 </div>
 
                                 <div class="form-group mb-2 text-white">
-                                    <label for="alamat" class="py-1">Alamat : </label>
+                                    <label for="alamat" class="py-1">Alamat * </label>
                                     <textarea name="txtalamat" row="5" col="20" id="alamat"
                                         class="form-control text-black" placeholder="Masukkan Alamat Lengkap Anda"></textarea>
                                     <?= form_error('txtalamat', '<small class="text-white pl-3">', '</small>'); ?>

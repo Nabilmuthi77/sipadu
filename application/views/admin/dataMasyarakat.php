@@ -118,57 +118,48 @@
 						<i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i>
 					</div>
-					<table>
+					<div class="table">
+					<table class="table-responsive">
 						<thead>
 							<tr>
-								<th>User</th>
-								<th>Date Order</th>
-								<th>Status</th>
+								<th>Nama</th>
+								<th>Tgl Lahir</th>
+								<th>Jenis Kelamin</th>
+								<th>Nomor WA</th>
+								<th>Alamat</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<td>
-									<img src="<?= base_url("/assets/gambar/people.png"); ?>">
 									<p>John Doe</p>
 								</td>
 								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
+								<td>Laki-laki</td>
+								<td>082258941501</td>
+								<td>Dsn Bamburaki II RT/RW 02/04 Desa Jatiwangi Kec. Jatisari kab. Karawang</td>
 							</tr>
 							<tr>
 								<td>
-									<img src="<?= base_url("/assets/gambar/people.png"); ?>">
 									<p>John Doe</p>
 								</td>
 								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
+								<td>Laki-laki</td>
+								<td>082258941501</td>
+								<td>Dsn Bamburaki II RT/RW 02/04 Desa Jatiwangi Kec. Jatisari kab. Karawang</td>
 							</tr>
 							<tr>
 								<td>
-									<img src="<?= base_url("/assets/gambar/people.png"); ?>">
 									<p>John Doe</p>
 								</td>
 								<td>01-10-2021</td>
-								<td><span class="status process">Process</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="<?= base_url("/assets/gambar/people.png"); ?>">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="<?= base_url("/assets/gambar/people.png"); ?>">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
+								<td>Laki-laki</td>
+								<td>082258941501</td>
+								<td>Dsn Bamburaki II RT/RW 02/04 Desa Jatiwangi Kec. Jatisari kab. Karawang</td>
 							</tr>
 						</tbody>
 					</table>
+					</div>
 				</div>
 
 			</div>

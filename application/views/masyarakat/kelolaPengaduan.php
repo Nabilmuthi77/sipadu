@@ -59,7 +59,7 @@
                     <hr>
                     <table class="table bg-dark text-white text-center rounded-4">
                         <tr>
-                            <td width="120px">Tgl</th>
+                            <td width="120px">Tanggal</th>
                             <td>-/-/-</td>
                         </tr>
                         <tr>
@@ -71,7 +71,7 @@
                             <td>Example</td>
                         </tr>
                         <tr>
-                            <td>Konten</td>
+                            <td>Konten / isi</td>
                             <td>Example</td>
                         </tr>
                         <tr>
@@ -82,7 +82,7 @@
                     <hr>
                     <table class="table bg-dark text-white text-center rounded-4">
                         <tr class="">
-                            <td width="120px">Tgl</td>
+                            <td width="120px">Tanggal</td>
                             <td>-/-/-</td>
                         </tr>
                         <tr>
@@ -94,7 +94,7 @@
                             <td>Example</td>
                         </tr>
                         <tr>
-                            <td>Konten</td>
+                            <td>Konten / isi</td>
                             <td>Example</td>
                         </tr>
                         <tr>

@@ -28,7 +28,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="<?= base_url('Admin/dataMasyarakat'); ?>">
 					<i class='bx bxs-group' ></i>
 					<span class="text">Data Masyarakat</span>
 				</a>
