@@ -116,52 +116,51 @@
 					</div>
 					<table>
 						<thead>
-							<tr>
-								<th>User</th>
-								<th>Date Order</th>
-								<th>Status</th>
+						<tr>
+								<th width="110px">Nama</th>
+								<th style="padding-left: 20px;">NIK</th>
+								<th width="100px">Bukti KTP</th>
+								<th style="padding-left: 20px;">Jenis Kelamin</th>
+								<th style="padding-left: 20px;">Nomor WA</th>
+								<th style="padding-left: 20px;">Validasi</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
+								<td>Nabil Muthi Maulani</td>
+								<td style="padding-left: 20px;">3210909090999</td>
 								<td>
-									<img src="<?= base_url("/assets/gambar/people.png"); ?>">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
+								<div style="padding-left: 15px;">
+								<img src="<?= base_url("/assets/gambar/nabil.jpg"); ?>">
+								</div>
+							</td>
+								<td style="padding-left: 20px;">Laki-laki</td>
+								<td style="padding-left: 20px;">082258941501</td>
+								<td><span class="status completed">Terima</span> <span class="status pending">Tolak</span></td>
 							</tr>
 							<tr>
+								<td>Rio Adrian Putra</td>
+								<td style="padding-left: 20px;">3210909090999</td>
 								<td>
-									<img src="<?= base_url("/assets/gambar/people.png"); ?>">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
+								<div style="padding-left: 15px;">
+								<img src="<?= base_url("/assets/gambar/hj.jpeg"); ?>">
+								</div>
+							</td>
+								<td style="padding-left: 20px;">Laki-laki</td>
+								<td style="padding-left: 20px;">082258941501</td>
+								<td><span class="status completed">Terima</span> <span class="status pending">Tolak</span></td>
 							</tr>
 							<tr>
+								<td>Ayu Adriana Putri</td>
+								<td style="padding-left: 20px;">3210909090999</td>
 								<td>
-									<img src="<?= base_url("/assets/gambar/people.png"); ?>">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status process">Process</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="<?= base_url("/assets/gambar/people.png"); ?>">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="<?= base_url("/assets/gambar/people.png"); ?>">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
+								<div style="padding-left: 15px;">
+								<img src="<?= base_url("/assets/gambar/hj.jpeg"); ?>">
+								</div>
+							</td>
+								<td style="padding-left: 20px;">Perempuan</td>
+								<td style="padding-left: 20px;">082258941501</td>
+								<td><span class="status completed">Terima</span> <span class="status pending">Tolak</span></td>
 							</tr>
 						</tbody>
 					</table>

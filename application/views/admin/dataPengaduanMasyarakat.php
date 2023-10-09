@@ -114,58 +114,41 @@
 			<div class="table-data">
 				<div class="order">
 					<div class="head">
-						<h3>Recent Orders</h3>
+						<h3>List Data Pengaduan</h3>
 						<i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i>
 					</div>
 					<table>
 						<thead>
-							<tr>
-								<th>User</th>
-								<th>Date Order</th>
-								<th>Status</th>
+						<tr>
+								<th width="110px">Nama</th>
+								<th style="padding-left: 20px;">Judul Pengaduan</th>
+								<th style="padding-left: 20px;">Isi Pengaduan</th>
+								<th style="padding-left: 20px;">Status</th>
+								<th style="padding-left: 20px;">Aksi</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>
-									<img src="<?= base_url("/assets/gambar/people.png"); ?>">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
+								<td>Nabil Muthi Maulani</td>
+								<td style="padding-left: 20px;">Benih Padi diserang Hama</td>
+								<td style="padding-left: 20px;">ssimos, ipsam adipisci necessitatibus ab consectetur magnam earum ipsa ea consequuntur, id beatae.</td>
+								<td style="padding-left: 20px;"><span class="status process">Diproses</span></td>
+								<td style="padding-left: 20px;"><span class="status completed">Selesai</span></td>
 							</tr>
 							<tr>
-								<td>
-									<img src="<?= base_url("/assets/gambar/people.png"); ?>">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
+								<td>Rio Adrian Putra</td>
+								<td style="padding-left: 20px;">Benih Padi Hancur</td>								
+								<td style="padding-left: 20px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati culpa minima iste non, earum hic quibusdam vitia.</td>
+								<td style="padding-left: 20px;"><span class="status process">Diproses</span></td>
+								<td style="padding-left: 20px;"><span class="status completed">Selesai</span></td>
 							</tr>
 							<tr>
-								<td>
-									<img src="<?= base_url("/assets/gambar/people.png"); ?>">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status process">Process</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="<?= base_url("/assets/gambar/people.png"); ?>">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="<?= base_url("/assets/gambar/people.png"); ?>">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
+								<td>Ayu Adriana Putri</td>
+								<td style="padding-left: 20px;">Sawah Hijau Kuning</td>
+								<td style="padding-left: 20px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. ti! Ipsa qui distinctio dolores nam optio. Voluptate temporibus facilis incidunt aliquid.</td>
+								<td style="padding-left: 20px;"><span class="status process">Diproses</span></td>
+								<td style="padding-left: 20px;"><span class="status completed">Selesai</span></td>
 							</tr>
 						</tbody>
 					</table>

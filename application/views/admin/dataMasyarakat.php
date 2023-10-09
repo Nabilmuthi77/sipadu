@@ -118,48 +118,36 @@
 						<i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i>
 					</div>
-					<div class="table">
-					<table class="table-responsive">
+					<table>
 						<thead>
 							<tr>
-								<th>Nama</th>
-								<th>Tgl Lahir</th>
-								<th>Jenis Kelamin</th>
-								<th>Nomor WA</th>
-								<th>Alamat</th>
+								<th width="110px">Nama</th>
+								<th style="padding-left: 20px;">NIK</th>
+								<th style="padding-left: 20px;">Tgl Lahir</th>
+								<th style="padding-left: 20px;">Jenis Kelamin</th>
+								<th style="padding-left: 20px;">Nomor WA</th>
+								<th style="padding-left: 20px;">Alamat</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td>Laki-laki</td>
-								<td>082258941501</td>
-								<td>Dsn Bamburaki II RT/RW 02/04 Desa Jatiwangi Kec. Jatisari kab. Karawang</td>
+								<td>Nabil Muthi Maulani</td>
+								<td style="padding-left: 20px;">3210909090999</td>
+								<td style="padding-left: 20px;">01-10-2021</td>
+								<td style="padding-left: 20px;">Laki-laki</td>
+								<td style="padding-left: 20px;">082258941501</td>
+								<td style="padding-left: 20px;">Dsn Bamburaki II RT/RW 02/04 Desa Jatiwangi Kec. Jatisari kab. Karawang</td>
 							</tr>
 							<tr>
-								<td>
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td>Laki-laki</td>
-								<td>082258941501</td>
-								<td>Dsn Bamburaki II RT/RW 02/04 Desa Jatiwangi Kec. Jatisari kab. Karawang</td>
-							</tr>
-							<tr>
-								<td>
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td>Laki-laki</td>
-								<td>082258941501</td>
-								<td>Dsn Bamburaki II RT/RW 02/04 Desa Jatiwangi Kec. Jatisari kab. Karawang</td>
+								<td>Rio Adrian Putra</td>
+								<td style="padding-left: 20px;">3210909090999</td>
+								<td style="padding-left: 20px;">01-10-2021</td>
+								<td style="padding-left: 20px;">Laki-laki</td>
+								<td style="padding-left: 20px;">082258941501</td>
+								<td style="padding-left: 20px;">Dsn Bamburaki II RT/RW 02/04 Desa Jatiwangi Kec. Jatisari kab. Karawang</td>
 							</tr>
 						</tbody>
 					</table>
-					</div>
 				</div>
 
 			</div>
