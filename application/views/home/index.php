@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?= $title; ?></title>
     <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.css'); ?>">
     <style>
     a {
@@ -87,23 +87,27 @@
                     <div class="text-white text-center py-1">
                         <h5><b> Aplikasi Sistem Informasi Pelayanan Pengaduan (SIPADU) </b></h5>
                     </div>
+                    <?= $this->session->flashdata('message'); ?>
 
                 </section>
 
 
                 <section class="container py-2 mb-4">
-
+                <form method="post" action="<?= base_url('home'); ?>">
                     <div class="form-group mb-3">
                         <input class="form-control py-2" type="text" placeholder="Nomor Induk Kependudukan"
-                            name="username">
+                            name="nik" value="<?= set_value('nik'); ?>">
+                            <?= form_error('nik', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group mb-5">
                         <input class="form-control py-2" type="password" placeholder="Kata Sandi"
-                            name="username">
+                            name="password">
+                            <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="mt-3">
                     <button type="submit" class="btn btn-primary w-100 text-white">Login Aplikasi</button>
                     </div>
+                    </form>
                     <p class="py-1 text-white text-center pb-2"> Belum Mempunyai Akun ? <a href="<?= base_url('Home/register'); ?>" class="text-white text-mobile"><b>Pendaftaran Akun !</b></a></p>
                 </section>
 

@@ -131,8 +131,6 @@
 								<td>Nabil Muthi Maulani</td>
 								<td style="padding-left: 20px;">3210909090999</td>
 								<td>
-								<div style="padding-left: 15px;">
-								<img src="<?= base_url("/assets/gambar/nabil.jpg"); ?>">
 
 
 
@@ -140,13 +138,13 @@
 
 								
  <!-- Trigger the Modal -->
- <img id="myImg" src="img_snow.jpg" alt="Snow" style="width:100%;max-width:300px">
+ <img id="myImg" src="<?= base_url("/assets/gambar/hj.jpeg"); ?>" alt="Snow" style="width:80%;max-width:300px;">
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
 
   <!-- The Close Button -->
-  <span class="close">&times;</span>
+  <span class="close">X</span>
 
   <!-- Modal Content (The Image) -->
   <img class="modal-content" id="img01">
@@ -158,10 +156,6 @@
 
 
 
-
-
-
-								</div>
 							</td>
 								<td style="padding-left: 20px;">Laki-laki</td>
 								<td style="padding-left: 20px;">082258941501</td>
@@ -172,7 +166,7 @@
 								<td style="padding-left: 20px;">3210909090999</td>
 								<td>
 								<div style="padding-left: 15px;">
-								<img src="<?= base_url("/assets/gambar/hj.jpeg"); ?>">
+								<img class="image" src="<?= base_url("/assets/gambar/hj.jpeg"); ?>">
 								</div>
 							</td>
 								<td style="padding-left: 20px;">Laki-laki</td>
@@ -184,7 +178,7 @@
 								<td style="padding-left: 20px;">3210909090999</td>
 								<td>
 								<div style="padding-left: 15px;">
-								<img src="<?= base_url("/assets/gambar/hj.jpeg"); ?>">
+								<img class="image" src="<?= base_url("/assets/gambar/hj.jpeg"); ?>">
 								</div>
 							</td>
 								<td style="padding-left: 20px;">Perempuan</td>
