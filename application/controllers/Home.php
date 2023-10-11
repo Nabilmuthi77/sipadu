@@ -28,31 +28,25 @@ class Home extends CI_Controller
         $password = $this->input->post('password');
 
         $user = $this->db->get_where('masyarakat', ['nik' => $nik])->row_array();
-        $user = $this->db->get_where('administrator', ['nik' => $nik])->row_array();
-        var_dump($user); die;
             if ($user) {
                 if (password_verify($password, $user['password'])) {
                     $data = [
                         'nik' => $user['nik'],
-                        'role' => $user['role']
+                        'nama' => $user['nama']
                     ];
                     $this->session->set_userdata($data);
-                    if ($user['role'] == 'superAdmin') {
-                        redirect('superAdmin');
-                    } elseif ($user['role'] == 'admin') {
-                        redirect('admin');
-                    } else {
+                    if ($user['status'] == 'verified') {
                         redirect('masyarakat');
+                    } else {
+                        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Akun Anda Sedang Divalidasi Admin!  </div>');
+                        redirect('home');
                     }
                 } else {
-                    var_dump($user['password']);
-                    var_dump($password);
-                    die;
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> wrong password! ..... </div>');
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Maaf, Password Anda Salah!  </div>');
                     redirect('home');
                 }
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Your Account has not been Registerd Yet! ..... </div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Akun Anda Belum Terdaftar!  </div>');
                 redirect('home');
             }
             
@@ -60,51 +54,66 @@ class Home extends CI_Controller
 
 
 	
-	// public function register()
-	// {
-    //     $this->form_validation->set_rules('name', 'Name', 'required|trim');
-    //     $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
-    //         'is_unique' => "This email has already registered!"
-    //     ]);
-    //     $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]|matches[password2]', [
-    //         'matches' => "password doesn't matches!",
-    //         'min_length' => "password too short!"
-    //     ]);
-    //     $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
+	public function register()
+	{
+        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('nik', 'NIK', 'required|trim|is_unique[masyarakat.nik]', [
+            'is_unique' => "This NIK has already registered!"
+        ]);
+        $this->form_validation->set_rules('wa', 'WhatsApp', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[3]', [
+            'min_length' => "password is too short!"
+        ]);
+        $this->form_validation->set_rules('tgl_lahir', 'Birth Day', 'required');
+        $this->form_validation->set_rules('jenisKelamin', 'Gender', 'required');
+        $this->form_validation->set_rules('alamat', 'Address', 'required|min_length[3]', [
+            'min_length' => "Address is too short!"
+        ]);
 
-    //     if ($this->form_validation->run() == false) {
-    //         $data['title'] = 'Registration Page';
-    //         $this->load->view('templates/auth_header', $data);
-    //         $this->load->view('auth/registration');
-    //         $this->load->view('templates/auth_footer');
-    //     } else {
-    //         $email = $this->input->post('email', true);
-    //         $data = [
-    //             'name' => htmlspecialchars($this->input->post('name', true)),
-    //             'email' => htmlspecialchars($email),
-    //             'image' => 'profile.jpeg',
-    //             'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
-    //             'role' => 'user',
-    //             'is_active' => 0,
-    //             'date_created' => time()
-    //         ];
 
-    //         $token = base64_encode(random_bytes(32));
+        if ($this->form_validation->run() == false) {
+            $data['title'] = 'Register SIPADU';
+            $this->load->view('home/register', $data);
+        } else {
 
-    //         $user_token = [
-    //             'email' => $email,
-    //             'token' => $token,
-    //             'date_created' => time()
-    //         ];
+            $config['upload_path']          = 'assets/gambar';
+            $config['allowed_types']        = 'gif|jpg|png|jpeg|heic|heif';
+            $config['max_size']             = '10240';
 
-    //         $this->db->insert('user', $data);
-    //         $this->db->insert('user_token', $user_token);
+            $this->load->library('upload', $config); 
 
-    //         $this->_sendEmail($token, 'verify');
+            if ($this->upload->do_upload("selfie")) {
+                $imageData = $this->upload->data();
+                $fileName = $imageData['file_name']; 
+            } else {
+                //flashdata massage
+                $x = $this->upload->display_errors();
+                $this->session->set_flashdata(
+                    'message',
+                    '<small class="text-white pl-3">
+			            ' . $x . ' 
+                    </small>'
+            );
+            redirect('home/register');
+        }
+        
+            $data = [
+                'nama' => htmlspecialchars($this->input->post('nama', true)),
+                'nik' => htmlspecialchars($this->input->post('nik', true)),
+                'tgl_lahir' => htmlspecialchars($this->input->post('tgl_lahir', true)),
+                'gender' => $this->input->post('jenisKelamin'),
+                'wa' => htmlspecialchars($this->input->post('wa', true)),
+                'alamat' => htmlspecialchars($this->input->post('alamat', true)),
+                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+                'status' => 'unverified',
+                'selfie' => $fileName
+            ];
 
-    //         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Congratulation! Your account has been created, Please activate your account.... </div>');
-    //         redirect('auth');
-    //     }
-    // }
+            $this->db->insert('masyarakat', $data);
+
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Akun Anda telah didaftarkan, Tunggu validasi admin! </div>');
+            redirect('home');
+        }
+    }
 	
 }

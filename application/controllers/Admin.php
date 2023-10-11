@@ -9,9 +9,21 @@ class Admin extends CI_Controller
 		parent::__construct();
 	}
 
+
 	public function index()
 	{
-		$this->load->view('admin/index');
+		$this->form_validation->set_rules('nip', 'NIP', 'trim|required');
+        $this->form_validation->set_rules('password', 'Password', 'trim|required');
+
+        if ($this->form_validation->run() == false) {
+            $data['title'] = 'Login Admin SIPADU';
+            $this->load->view('admin/login', $data);
+        } else {
+            $this->_login();
+        }
+
+
+		// $this->load->view('admin/index');
 	}
 	
     public function dataMasyarakat()

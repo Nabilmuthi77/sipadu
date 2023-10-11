@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?= $title; ?></title>
     <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.css'); ?>">
     <style>
     a {
@@ -45,25 +45,30 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-6">
+                            <form class="user" method="post" action="<?= base_url('home/register'); ?>" enctype="multipart/form-data">
                                 <div class="form-group mb-2">
-                                    <label for="" class="text-white py-1"> Nama Lengkap *</label>
+                                    <label for="nama" class="text-white py-1"> Nama Lengkap *</label>
                                     <input class="form-control py-2" type="text" placeholder="Nama Lengkap"
-                                        name="username">
+                                        name="nama" id="nama">
+                                        <?= form_error('nama', '<small class="text-white pl-3">', '</small>'); ?>
                                 </div>
                                 <div class="form-group mb-2">
-                                    <label for="" class="text-white py-1"> NIK *</label>
-                                    <input class="form-control py-2" type="password"
-                                        placeholder="Nomor Induk Kependudukan" name="username">
+                                    <label for="nik" class="text-white py-1"> NIK *</label>
+                                    <input class="form-control py-2" type="text"
+                                        placeholder="Nomor Induk Kependudukan" name="nik" id="nik">
+                                        <?= form_error('nik', '<small class="text-white pl-3">', '</small>'); ?>
                                 </div>
                                 <div class="form-group mb-2">
-                                    <label for="" class="text-white py-1"> Nomor WhatsApp *</label>
+                                    <label for="wa" class="text-white py-1"> Nomor WhatsApp *</label>
                                     <input class="form-control py-2" type="text" placeholder="Nomor WhatsApp (Aktif)"
-                                        name="username">
+                                        name="wa" id="wa">
+                                        <?= form_error('wa', '<small class="text-white pl-3">', '</small>'); ?>
                                 </div>
                                 <div class="form-group mb-2">
-                                    <label for="" class="text-white py-1"> Buat Kata Sandi *</label>
+                                    <label for="password" class="text-white py-1"> Buat Kata Sandi *</label>
                                     <input class="form-control py-2" type="password" placeholder="Masukkan Kata Sandi"
-                                        name="username">
+                                        name="password">
+                                        <?= form_error('password', '<small class="text-white pl-3">', '</small>'); ?>
                                 </div>
                             </div>
 
@@ -71,35 +76,37 @@
 
                             <div class="col-6">
                                 <div class="form-group mb-2">
-                                    <label for="pict" class="text-white py-1"> Upload Foto Selfie dengan KTP * </label>
-                                    <input type="file" class="form-control text-black mb-1" id="pict" name="gambar">
+                                    <label for="camera" class="text-white py-1"> Upload Foto Selfie dengan KTP * </label>
+                                    <input type="file" accept="image/*;capture=gallery" class="form-control text-black mb-1" id="camera" name="selfie" required>
+                                    <?= $this->session->flashdata('message'); ?>
                                 </div>
                                 <div class="form-group mb-2">
-                                    <label for="" class="text-white py-1"> Tanggal Lahir *</label>
-                                    <input class="form-control py-2" type="date" name="username">
+                                    <label for="date" class="text-white py-1"> Tanggal Lahir *</label>
+                                    <input class="form-control py-2" type="date" id="date" name="tgl_lahir">
+                                    <?= form_error('tgl_lahir', '<small class="text-white pl-3">', '</small>'); ?>
                                 </div>
 
                                 <div class="form-group mb-2 text-white">
                                     <label for="jk" class="py-1">Jenis Kelamin * </label> <br>
-                                    <input type="radio" name="rdjeniskelamin" value="Laki-Laki" id="jk"
+                                    <input type="radio" name="jenisKelamin" value="Laki-Laki" id="jk"
                                         class="form-check-input"> Laki-Laki
-                                    <input type="radio" name="rdjeniskelamin" value="Perempuan"
+                                    <input type="radio" name="jenisKelamin" value="Perempuan"
                                         class="form-check-input"> Perempuan <br>
-                                    <?= form_error('rdjeniskelamin', '<small class="text-white pl-3">', '</small>'); ?>
+                                    <?= form_error('jenisKelamin', '<small class="text-white pl-3">', '</small>'); ?>
                                 </div>
 
                                 <div class="form-group mb-2 text-white">
                                     <label for="alamat" class="py-1">Alamat * </label>
-                                    <textarea name="txtalamat" row="5" col="20" id="alamat"
+                                    <textarea name="alamat" row="5" col="20" id="alamat"
                                         class="form-control text-black" placeholder="Masukkan Alamat Lengkap Anda"></textarea>
-                                    <?= form_error('txtalamat', '<small class="text-white pl-3">', '</small>'); ?>
+                                    <?= form_error('alamat', '<small class="text-white pl-3">', '</small>'); ?>
                                 </div>
-
                             </div>
                         </div>
                         <div class="mt-4">
-                            <a href="#" class="btn btn-primary w-100">Daftar Aplikasi</a>
+                            <button type="submit" class="btn btn-primary w-100">Daftar Aplikasi</button>
                         </div>
+                    </form>
                         <p class="py-1 text-white text-center pb-2"> Sudah Mempunyai Akun ? <a href="<?= base_url(); ?>"
                                 class="text-white text-mobile"><b>Login Akun !</b></a></p>
                     </div>
