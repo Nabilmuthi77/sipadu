@@ -7,25 +7,23 @@ class Admin extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		if ($this->session->userdata('role') != 'admin') {
+			if (!$this->session->userdata('nip'))  {
+				redirect('auth');
+			} else {
+				redirect('authAdmin');
+			}
+		}
 	}
 
 
 	public function index()
 	{
-		$this->form_validation->set_rules('nip', 'NIP', 'trim|required');
-        $this->form_validation->set_rules('password', 'Password', 'trim|required');
-
-        if ($this->form_validation->run() == false) {
-            $data['title'] = 'Login Admin SIPADU';
-            $this->load->view('admin/login', $data);
-        } else {
-            $this->_login();
-        }
-
-
-		// $this->load->view('admin/index');
+		var_dump($this->session->userdata); die;
+		$this->load->view('admin/index');
 	}
 	
+
     public function dataMasyarakat()
 	{
 		$this->load->view('admin/dataMasyarakat');

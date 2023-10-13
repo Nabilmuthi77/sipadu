@@ -45,7 +45,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-6">
-                            <form class="user" method="post" action="<?= base_url('home/register'); ?>" enctype="multipart/form-data">
+                            <form class="user" method="post" action="<?= base_url('Auth/register'); ?>" enctype="multipart/form-data">
                                 <div class="form-group mb-2">
                                     <label for="nama" class="text-white py-1"> Nama Lengkap *</label>
                                     <input class="form-control py-2" type="text" placeholder="Nama Lengkap"
