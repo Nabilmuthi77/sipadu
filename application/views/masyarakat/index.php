@@ -38,20 +38,26 @@
 
     </section>
 
-    <section class="container mt-3  px-5 py-2">
-            <div class="row container-fluid py-2">
-            <div class="col-lg-7 p-4 bg-secondary mx-auto rounded-3 mb-4" id="formulir" style="border: 5px solid black;">
-                <h2 class="text-center text-white">FORMULIR PENGADUAN MASYARAKAT</h2>
-                <div class="form-group mb-2">
-                    <label for="" class="text-white py-1 text-left"> JUDUL *</label>
-                    <input class="form-control py-2" type="text" placeholder="Tulis Judul Pengaduan....." name="username">
+    <section class="container-fluid mt-3  py-2 mb-5">
+            <div class="row container mx-auto">
+            <div class="col-lg-7 p-3 bg-white mx-auto rounded-3" id="formulir" style="	box-shadow: -1px -1px 8px rgba(57, 57, 57, .1), 6px 6px 8px rgb(245, 245, 245);">
+                <hr>
+                <h2 class="text-center" >FORMULIR PENGADUAN <br> MASYARAKAT</h2>
+                <hr>
+                <form method="post" action="<?= base_url('Masyarakat') ?>">
+                <div class="form-group my-3">
+                    <label for="" class="text-dark py-1 text-left"> JUDUL *</label>
+                    <input class="form-control py-2" type="text" placeholder="Tulis Judul Pengaduan....." name="judul" value="<?= set_value('judul'); ?>">
+                    <?= form_error('judul', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group mb-2">
-                    <label for="" class="text-white py-1 text-left"> ISI ASPIRASI/KRITIK/SARAN/PENGADUAN *</label>
-                    <textarea name="" row="8" col="20" placeholder="Tulis Isi Pengaduan....." class="form-control text-black"></textarea>
+                    <label for="" class="text-dark py-1 text-left"> ISI SARAN/KRITIK/PENGADUAN *</label>
+                    <textarea name="isi" row="8" col="20" placeholder="Tulis Isi Pengaduan....." class="form-control text-black"><?= set_value('isi'); ?></textarea>
+                    <?= form_error('isi', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
-                <a class="btn btn-primary w-100 mt-2">KIRIM</a>
+                <button type="submit" class="btn btn-primary w-100 mt-2">KIRIM</button>
             </div>
+            </form>
     </section>
 
 

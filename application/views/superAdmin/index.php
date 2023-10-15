@@ -4,13 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?= $title; ?></title>
     <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.css'); ?>">
     <style>
         a {
             text-decoration: none;
+            color: black;
         }
-
+    .hitam a:hover {
+        color: grey;
+    }
         /* background-image: url(<?= base_url('assets/gambar/bg.jpg'); ?>); */
         .element-dengan-background {
             background-image: url('https://sitabah.kesrajabar.id/assets/images/bg.png');
@@ -25,19 +28,22 @@
 <body class="element-dengan-background">
 
     <section class="container mt-3 text-center" id="kelola">
+        <div class="row w-50 mx-auto">
+        <?= $this->session->flashdata('message'); ?>
+        </div>
         <div class="row d-flex justify-content-center py-2">
             <div class="col-lg-3 mb-2">
                 <div class="bg-white p-1 text-start rounded-4">
                     <h2 class="text-center">Navigasi</h2>
-                    <ul>
-                        <li><a href="#daftarAdmin" class="text-dark"> Lihat Daftar Admin </a></li>
+                    <ul class="hitam">
+                        <li><a href="#daftarAdmin"> Lihat Daftar Admin </a></li>
                         <li>
-                            <p type="button" class="" data-bs-toggle="modal" data-bs-target="#saModal">
-                                Tambah Admin Baru</p>
+                            <a href="<?= base_url('SuperAdmin/tambahAdmin'); ?>">
+                                Tambah Admin Baru</a>
                         </li>
                     </ul>
                     <div class="text-center">
-                        <a href="#" class="badge bg-dark text-white w-75 mb-2">Logout</a>
+                        <a href="<?= base_url('AuthAdmin/logout'); ?>" class="badge bg-dark text-white w-75 mb-2">Logout</a>
                     </div>
 
                 </div>
@@ -74,47 +80,6 @@
 
         </div>
     </section>
-
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="saModal" tabindex="-1" aria-labelledby="saModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="saModalLabel">Tambah Admin Baru</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group mb-2">
-                        <label for="" class="py-1"> NIK *</label>
-                        <input class="form-control py-2" type="text" placeholder="Nomor Induk Kependudukan" name="username">
-                    </div>
-                    <div class="form-group mb-2">
-                        <label for="" class="py-1"> Nama *</label>
-                        <input class="form-control py-2" type="text" placeholder="Input Nama Lengkap" name="username">
-                    </div>
-                    <div class="form-group mb-2">
-                        <label for="" class="py-1"> Jabatan *</label>
-                        <input class="form-control py-2" type="text" placeholder="Input Jabatan" name="username">
-                    </div>
-                    <div class="form-group mb-2">
-                        <label for="" class="py-1"> NIP *</label>
-                        <input class="form-control py-2" type="text" placeholder="Nomor Induk Pegawai" name="username">
-                    </div>
-                    <div class="form-group mb-2">
-                        <label for="" class="py-1"> Password *</label>
-                        <input class="form-control py-2" type="password" placeholder="Password Default : BBP4D1" name="username">
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Tambah Admin</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     <script src="<?= base_url('assets/js/bootstrap.bundle.js'); ?>"></script>
