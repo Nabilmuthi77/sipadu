@@ -37,30 +37,30 @@
                                 <div class="form-group mb-2">
                                     <label for="nama" class="text-white py-1"> Nama Lengkap *</label>
                                     <input class="form-control py-2" type="text" placeholder="Nama Lengkap"  name="nama" id="nama" value="<?= set_value('nama'); ?>">
-                                        <?= form_error('nama', '<small class="text-white pl-3">', '</small>'); ?>
+                                        <?= form_error('nama', '<small class="text-danger pl-3"> <i>', '</i></small>'); ?>
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="nik" class="text-white py-1"> NIK *</label>
                                     <input class="form-control py-2" type="text"
                                         placeholder="Nomor Induk Kependudukan" name="nik" id="nik" value="<?= set_value('nik'); ?>">
-                                        <?= form_error('nik', '<small class="text-white pl-3">', '</small>'); ?>
+                                        <?= form_error('nik', '<small class="text-danger pl-3"> <i>', '</i></small>'); ?>
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="jabatan" class="text-white py-1"> Jabatan *</label>
                                     <input class="form-control py-2" type="text" placeholder="Jabatan" name="jabatan" id="jabatan" value="<?= set_value('jabatan'); ?>">
-                                        <?= form_error('jabatan', '<small class="text-white pl-3">', '</small>'); ?>
+                                        <?= form_error('jabatan', '<small class="text-danger pl-3"> <i>', '</i></small>'); ?>
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="nip" class="text-white py-1"> NIP *</label>
                                     <input class="form-control py-2" type="text"
                                         placeholder="Nomor Induk Pegawai" name="nip" id="nip" value="<?= set_value('nip'); ?>">
-                                        <?= form_error('nip', '<small class="text-white pl-3">', '</small>'); ?>
+                                        <?= form_error('nip', '<small class="text-danger pl-3"> <i>', '</i></small>'); ?>
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="password" class="text-white py-1"> Buat Kata Sandi *</label>
                                     <input class="form-control py-2" type="password" placeholder="Masukkan Kata Sandi"
                                         name="password">
-                                        <?= form_error('password', '<small class="text-white pl-3">', '</small>'); ?>
+                                        <?= form_error('password', '<small class="text-danger pl-3"> <i>', '</i></small>'); ?>
                                 </div>
                         <div class="mt-5 mb-2">
                             <button type="submit" class="btn btn-primary w-100">Tambah Admin</button>

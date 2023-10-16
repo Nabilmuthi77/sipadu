@@ -93,12 +93,12 @@
                     <div class="form-group mb-3">
                         <input class="form-control py-2" type="text" placeholder="Nomor Induk Kependudukan"
                             name="nik" value="<?= set_value('nik'); ?>">
-                            <?= form_error('nik', '<small class="text-danger pl-3">', '</small>'); ?>
+                            <?= form_error('nik', '<small class="text-danger pl-3"><i>', '</i></small>'); ?>
                     </div>
                     <div class="form-group mb-5">
                         <input class="form-control py-2" type="password" placeholder="Kata Sandi"
                             name="password">
-                            <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
+                            <?= form_error('password', '<small class="text-danger pl-3"><i>', '</i></small>'); ?>
                     </div>
                     <div class="mt-3">
                     <button type="submit" class="btn btn-primary w-100 text-white">Login Aplikasi</button>

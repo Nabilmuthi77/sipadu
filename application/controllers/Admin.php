@@ -14,24 +14,28 @@ class Admin extends CI_Controller
 				redirect('authAdmin');
 			}
 		}
+		$this->load->model('M_admin');
 	}
 
 
 	public function index()
 	{
-		var_dump($this->session->userdata); die;
 		$this->load->view('admin/index');
 	}
 	
 
     public function dataMasyarakat()
 	{
-		$this->load->view('admin/dataMasyarakat');
+		$data['title'] = 'Data Masyarakat';
+		$data['masyarakat'] = $this->M_admin->read();
+		$this->load->view('admin/dataMasyarakat', $data);
 	}
 
     public function dataValidasiMasyarakat()
 	{
-		$this->load->view('admin/dataValidasiMasyarakat');
+		$data['title'] = 'Data Validasi Masyarakat';
+		$data['masyarakat'] = $this->M_admin->read();
+		$this->load->view('admin/dataValidasiMasyarakat', $data);
 	}
 
     public function dataPengaduanMasyarakat()

@@ -11,9 +11,9 @@
             text-decoration: none;
             color: black;
         }
-    .hitam a:hover {
-        color: grey;
-    }
+        .hitam a:hover {
+            color: grey;
+        }
         /* background-image: url(<?= base_url('assets/gambar/bg.jpg'); ?>); */
         .element-dengan-background {
             background-image: url('https://sitabah.kesrajabar.id/assets/images/bg.png');
@@ -56,24 +56,20 @@
                         <tr class="">
                             <th>No</th>
                             <th>Nama</th>
-                            <th>NIP</th>
                             <th>Jabatan</th>
                             <th>Aksi</th>
                         </tr>
+                        <?php 
+                        $no = 1;
+                        foreach($administrator as $admin) { 
+                        if ($admin['role'] == 'admin') {?>
                         <tr>
-                            <td>1</td>
-                            <td>Rindang1</td>
-                            <td>31214162625456</td>
-                            <td>Pengolah Data</td>
-                            <td><a href="#" class="badge bg-danger">Hapus Admin</a></td>
+                            <td><?= $no++; ?></td>
+                            <td><?= $admin['nama']; ?></td>
+                            <td><?= $admin['jabatan']; ?></td>
+                            <td><a href="<?= base_url('SuperAdmin/hapusAdmin/') . $admin['id']; ?>" class="badge bg-danger">Hapus Admin</a></td>
                         </tr>
-                        <tr>
-                            <td style="border-bottom: none;">2</td>
-                            <td style="border-bottom: none;">Rindang2</td>
-                            <td style="border-bottom: none;">31214162625456</td>
-                            <td style="border-bottom: none;">Pengolah Data</td>
-                            <td style="border-bottom: none;"><a href="#" class="badge bg-danger">Hapus Admin</a></td>
-                        </tr>
+                        <?php }} ?>
                     </table>
                 </div>
             </div>

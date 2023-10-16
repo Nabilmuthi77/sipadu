@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="<?= base_url('assets/css/style.css'); ?>">
 	<link rel="stylesheet" href="<?= base_url('assets/css/modal.css'); ?>">
 
-	<title>AdminHub</title>
+	<title><?= $title; ?></title>
 </head>
 <body>
 
@@ -121,71 +121,40 @@
 								<th width="110px">Nama</th>
 								<th style="padding-left: 20px;">NIK</th>
 								<th width="100px">Bukti KTP</th>
-								<th style="padding-left: 20px;">Jenis Kelamin</th>
+								<th style="padding-left: 20px;">Gender</th>
 								<th style="padding-left: 20px;">Nomor WA</th>
 								<th style="padding-left: 20px;">Validasi</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>Nabil Muthi Maulani</td>
-								<td style="padding-left: 20px;">3210909090999</td>
-								<td>
+    <?php foreach ($masyarakat as $m) { ?>
+    <tr>
+        <td><?= $m['nama']; ?></td>
+        <td style="padding-left: 20px;"><?= $m['nik']; ?></td>
+        <td>                               
+            <!-- Trigger the Modal -->
+            <img class="myImg" src="<?= base_url("/assets/gambar/". $m['selfie']); ?>" alt="<?= $m['selfie']; ?>" style="width:80%;max-width:300px;">
 
+            <!-- The Modal -->
+            <div class="modal">
+                <!-- The Close Button -->
+                <span class="close">X</span>
+                <!-- Modal Content (The Image) -->
+                <img class="modal-content">
+                <!-- Modal Caption (Image Text) -->
+                <div class="caption"></div>
+            </div>
+        </td>
+        <td style="padding-left: 20px;"><?= $m['gender']; ?></td>
+        <td style="padding-left: 20px;"><?= $m['wa']; ?></td>
+        <td>
+            <span class="status completed">Terima</span>
+            <span class="status pending">Tolak</span>
+        </td>
+    </tr>
+    <?php } ?>
+</tbody>
 
-
-
-
-								
- <!-- Trigger the Modal -->
- <img id="myImg" src="<?= base_url("/assets/gambar/hj.jpeg"); ?>" alt="Snow" style="width:80%;max-width:300px;">
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- The Close Button -->
-  <span class="close">X</span>
-
-  <!-- Modal Content (The Image) -->
-  <img class="modal-content" id="img01">
-
-  <!-- Modal Caption (Image Text) -->
-  <div id="caption"></div>
-</div> 
-
-
-
-
-							</td>
-								<td style="padding-left: 20px;">Laki-laki</td>
-								<td style="padding-left: 20px;">082258941501</td>
-								<td><span class="status completed">Terima</span> <span class="status pending">Tolak</span></td>
-							</tr>
-							<tr>
-								<td>Rio Adrian Putra</td>
-								<td style="padding-left: 20px;">3210909090999</td>
-								<td>
-								<div style="padding-left: 15px;">
-								<img class="image" src="<?= base_url("/assets/gambar/hj.jpeg"); ?>">
-								</div>
-							</td>
-								<td style="padding-left: 20px;">Laki-laki</td>
-								<td style="padding-left: 20px;">082258941501</td>
-								<td><span class="status completed">Terima</span> <span class="status pending">Tolak</span></td>
-							</tr>
-							<tr>
-								<td>Ayu Adriana Putri</td>
-								<td style="padding-left: 20px;">3210909090999</td>
-								<td>
-								<div style="padding-left: 15px;">
-								<img class="image" src="<?= base_url("/assets/gambar/hj.jpeg"); ?>">
-								</div>
-							</td>
-								<td style="padding-left: 20px;">Perempuan</td>
-								<td style="padding-left: 20px;">082258941501</td>
-								<td><span class="status completed">Terima</span> <span class="status pending">Tolak</span></td>
-							</tr>
-						</tbody>
 					</table>
 				</div>
 			</div>

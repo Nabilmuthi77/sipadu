@@ -11,8 +11,12 @@ class Auth extends CI_Controller
 
 	public function index()
     {
-        $this->form_validation->set_rules('nik', 'NIK', 'trim|required');
-        $this->form_validation->set_rules('password', 'Password', 'trim|required');
+        $this->form_validation->set_rules('nik', 'NIK', 'trim|required', [
+            'required' => "NIK Jangan Dikosongkan!"
+        ]);
+        $this->form_validation->set_rules('password', 'Password', 'trim|required', [
+            'required' => "Password Jangan Dikosongkan!"
+        ]);
 
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Login SIPADU';
@@ -54,18 +58,29 @@ class Auth extends CI_Controller
 	
 	public function register()
 	{
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('nama', 'Nama Lengkap', 'required', [
+            'required' => "Nama Lengkap Jangan Dikosongkan!"
+        ]);
         $this->form_validation->set_rules('nik', 'NIK', 'required|trim|is_unique[masyarakat.nik]', [
-            'is_unique' => "This NIK has already registered!"
+            'is_unique' => "NIK Ini Telah Terdaftar!",
+            'required' => "NIK Jangan Dikosongkan!"
         ]);
-        $this->form_validation->set_rules('wa', 'WhatsApp', 'required');
+        $this->form_validation->set_rules('wa', 'Nomor WhatsApp', 'required', [
+            'required' => "Nomor WhatsApp Jangan Dikosongkan!"
+        ]);
         $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[3]', [
-            'min_length' => "password is too short!"
+            'min_length' => "password is too short!",
+            'required' => "Password Jangan Dikosongkan!"
         ]);
-        $this->form_validation->set_rules('tgl_lahir', 'Birth Day', 'required');
-        $this->form_validation->set_rules('jenisKelamin', 'Gender', 'required');
-        $this->form_validation->set_rules('alamat', 'Address', 'required|min_length[3]', [
-            'min_length' => "Address is too short!"
+        $this->form_validation->set_rules('tgl_lahir', 'Tanggal Lahir', 'required', [
+            'required' => "Tanggal Lahir Jangan Dikosongkan!"
+        ]);
+        $this->form_validation->set_rules('jenisKelamin', 'Jenis Kelamin', 'required', [
+            'required' => "Jenis Kelamin Jangan Dikosongkan!"
+        ]);
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required|min_length[7]', [
+            'min_length' => "Mohon Tulis Alamat Lengkap!",
+            'required' => "Alamat Jangan Dikosongkan!"
         ]);
 
 
@@ -88,9 +103,9 @@ class Auth extends CI_Controller
                 $x = $this->upload->display_errors();
                 $this->session->set_flashdata(
                     'message',
-                    '<small class="text-white pl-3">
+                    '<small class="text-danger pl-3"><i>
 			            ' . $x . ' 
-                    </small>'
+                    </i></small>'
             );
             redirect('auth/register');
         }

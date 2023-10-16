@@ -20,6 +20,7 @@ class SuperAdmin extends CI_Controller
 	public function index()
 	{
 			$data['title'] = 'Super Admin';
+			$data['administrator'] = $this->M_superAdmin->read();
 			$this->load->view('superAdmin/index', $data);
 	}
 
@@ -57,4 +58,16 @@ class SuperAdmin extends CI_Controller
 		}
 
 	}
+
+	public function hapusAdmin($id)
+    {
+		$this->M_superAdmin->hapus($id);
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong> Data Admin Berhasil Dihapus ! </strong>
+        </div>'
+        );
+        redirect('SuperAdmin');
+    }
 }

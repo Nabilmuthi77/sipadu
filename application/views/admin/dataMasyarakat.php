@@ -9,7 +9,7 @@
 	<!-- My CSS -->
 	<link rel="stylesheet" href="<?= base_url('assets/css/style.css'); ?>">
 
-	<title>AdminHub</title>
+	<title><?= $title; ?></title>
 </head>
 <body>
 
@@ -124,28 +124,24 @@
 								<th width="110px">Nama</th>
 								<th style="padding-left: 20px;">NIK</th>
 								<th style="padding-left: 20px;">Tgl Lahir</th>
-								<th style="padding-left: 20px;">Jenis Kelamin</th>
+								<th style="padding-left: 20px;">Gender</th>
 								<th style="padding-left: 20px;">Nomor WA</th>
 								<th style="padding-left: 20px;">Alamat</th>
 							</tr>
 						</thead>
 						<tbody>
+							<?php foreach($masyarakat as $m) { 
+							if ($m['status'] == 'verified') {	
+							?>
 							<tr>
-								<td>Nabil Muthi Maulani</td>
-								<td style="padding-left: 20px;">3210909090999</td>
-								<td style="padding-left: 20px;">01-10-2021</td>
-								<td style="padding-left: 20px;">Laki-laki</td>
-								<td style="padding-left: 20px;">082258941501</td>
-								<td style="padding-left: 20px;">Dsn Bamburaki II RT/RW 02/04 Desa Jatiwangi Kec. Jatisari kab. Karawang</td>
+								<td><?= $m['nama']; ?></td>
+								<td style="padding-left: 20px;"><?= $m['nik']; ?></td>
+								<td style="padding-left: 20px;"><?= $m['tgl_lahir']; ?></td>
+								<td style="padding-left: 20px;"><?= $m['gender']; ?></td>
+								<td style="padding-left: 20px;"><?= $m['wa']; ?></td>
+								<td style="padding-left: 20px;"><?= $m['alamat']; ?></td>
 							</tr>
-							<tr>
-								<td>Rio Adrian Putra</td>
-								<td style="padding-left: 20px;">3210909090999</td>
-								<td style="padding-left: 20px;">01-10-2021</td>
-								<td style="padding-left: 20px;">Laki-laki</td>
-								<td style="padding-left: 20px;">082258941501</td>
-								<td style="padding-left: 20px;">Dsn Bamburaki II RT/RW 02/04 Desa Jatiwangi Kec. Jatisari kab. Karawang</td>
-							</tr>
+							<?php }} ?>
 						</tbody>
 					</table>
 				</div>
