@@ -113,6 +113,7 @@
 
 			<div class="table-data">
 				<div class="order">
+					<?= $this->session->flashdata('message'); ?>
 					<div class="head">
 						<h3>List Data Masyarakat</h3>
 						<i class='bx bx-search' ></i>
@@ -130,8 +131,11 @@
 							</tr>
 						</thead>
 						<tbody>
-							<?php foreach($masyarakat as $m) { 
-							if ($m['status'] == 'verified') {	
+							<?php
+								$dataKosong = true;
+							 	foreach ($masyarakat as $m) { 
+									if($m['status'] == 'verified') {
+										$dataKosong = false;
 							?>
 							<tr>
 								<td><?= $m['nama']; ?></td>
@@ -142,6 +146,12 @@
 								<td style="padding-left: 20px;"><?= $m['alamat']; ?></td>
 							</tr>
 							<?php }} ?>
+
+							<?php if ($dataKosong) { ?>
+								<tr>
+            						<th colspan="6" style="text-align: center; padding: 20px;"><h1>Data Kosong!</h1></th>
+        						</tr>
+							<?php } ?>
 						</tbody>
 					</table>
 				</div>

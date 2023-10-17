@@ -40,11 +40,37 @@ class Admin extends CI_Controller
 
     public function dataPengaduanMasyarakat()
 	{
-		$this->load->view('admin/dataPengaduanMasyarakat');
+		$data['title'] = 'Data Pengaduan Masyarakat';
+		$data['pengaduan'] = $this->M_admin->readPengaduan();
+		$this->load->view('admin/dataPengaduanMasyarakat', $data);
 	}
 
     public function setting()
 	{
 		$this->load->view('admin/setting');
+	}
+
+	public function terima($id)
+	{
+		$this->M_admin->terima($id);
+        $this->session->set_flashdata(
+            'message',
+            '<div style="background-color: lightgreen; border-radius: 5px; padding: 4px; text-align: center; margin-bottom: 7px; color: grey;">
+        <strong> Data Masyarakat Berhasil Divalidasi ! </strong>
+        </div>'
+        );
+        redirect('Admin/dataMasyarakat');
+	}
+
+	public function tolak($id)
+	{
+		$this->M_admin->tolak($id);
+        $this->session->set_flashdata(
+            'message',
+            '<div style="background-color: lightsalmon; border-radius: 5px; padding: 4px; text-align: center; margin-bottom: 7px; color: white;">
+        <strong> Data Masyarakat Berhasil Dihapus ! </strong>
+        </div>'
+        );
+        redirect('Admin/dataValidasiMasyarakat');
 	}
 }

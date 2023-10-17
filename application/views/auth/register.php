@@ -49,25 +49,25 @@
                                 <div class="form-group mb-2">
                                     <label for="nama" class="text-white py-1"> Nama Lengkap *</label>
                                     <input class="form-control py-2" type="text" placeholder="Nama Lengkap"
-                                        name="nama" id="nama">
+                                        name="nama" id="nama" value="<?= set_value('nama'); ?>">
                                         <?= form_error('nama', '<small class="text-danger pl-3"><i>', '</i></small>'); ?>
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="nik" class="text-white py-1"> NIK *</label>
                                     <input class="form-control py-2" type="text"
-                                        placeholder="Nomor Induk Kependudukan" name="nik" id="nik">
+                                        placeholder="Nomor Induk Kependudukan" name="nik" id="nik" value="<?= set_value('nik'); ?>">
                                         <?= form_error('nik', '<small class="text-danger pl-3"><i>', '</i></small>'); ?>
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="wa" class="text-white py-1"> Nomor WhatsApp *</label>
                                     <input class="form-control py-2" type="text" placeholder="Nomor WhatsApp (Aktif)"
-                                        name="wa" id="wa">
+                                        name="wa" id="wa" value="<?= set_value('wa'); ?>">
                                         <?= form_error('wa', '<small class="text-danger pl-3"><i>', '</i></small>'); ?>
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="password" class="text-white py-1"> Buat Kata Sandi *</label>
                                     <input class="form-control py-2" type="password" placeholder="Masukkan Kata Sandi"
-                                        name="password">
+                                        name="password" id="password">
                                         <?= form_error('password', '<small class="text-danger pl-3"><i>', '</i></small>'); ?>
                                 </div>
                             </div>
@@ -82,7 +82,7 @@
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="date" class="text-white py-1"> Tanggal Lahir *</label>
-                                    <input class="form-control py-2" type="date" id="date" name="tgl_lahir">
+                                    <input class="form-control py-2" type="date" id="date" name="tgl_lahir" value="<?= set_value('tgl_lahir'); ?>">
                                     <?= form_error('tgl_lahir', '<small class="text-danger pl-3"><i>', '</i></small>'); ?>
                                 </div>
 
@@ -98,7 +98,7 @@
                                 <div class="form-group mb-2 text-white">
                                     <label for="alamat" class="py-1">Alamat * </label>
                                     <textarea name="alamat" row="5" col="20" id="alamat"
-                                        class="form-control text-black" placeholder="Masukkan Alamat Lengkap Anda"></textarea>
+                                        class="form-control text-black" placeholder="Masukkan Alamat Lengkap Anda"><?= set_value('alamat'); ?></textarea>
                                     <?= form_error('alamat', '<small class="text-danger pl-3"><i>', '</i></small>'); ?>
                                 </div>
                             </div>

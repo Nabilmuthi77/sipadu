@@ -110,6 +110,7 @@
 
 			<div class="table-data">
 				<div class="order">
+					<?= $this->session->flashdata('message'); ?>
 					<div class="head">
 						<h3>Kelola Validasi Masyarakat</h3>
 						<i class='bx bx-search' ></i>
@@ -127,34 +128,42 @@
 							</tr>
 						</thead>
 						<tbody>
-    <?php foreach ($masyarakat as $m) { ?>
-    <tr>
-        <td><?= $m['nama']; ?></td>
-        <td style="padding-left: 20px;"><?= $m['nik']; ?></td>
-        <td>                               
-            <!-- Trigger the Modal -->
-            <img class="myImg" src="<?= base_url("/assets/gambar/". $m['selfie']); ?>" alt="<?= $m['selfie']; ?>" style="width:80%;max-width:300px;">
+							<?php
+								$dataKosong = true;
+							 	foreach ($masyarakat as $m) { 
+									if($m['status'] == 'unverified') {
+										$dataKosong = false;
+							?>
+    						<tr>
+        						<td><?= $m['nama']; ?></td>
+        						<td style="padding-left: 20px;"><?= $m['nik']; ?></td>
+        						<td>                               
+            						<!-- Trigger the Modal -->
+            						<img class="myImg" src="<?= base_url("/assets/gambar/". $m['selfie']); ?>" style="width:80%;max-width:300px;">
 
-            <!-- The Modal -->
-            <div class="modal">
-                <!-- The Close Button -->
-                <span class="close">X</span>
-                <!-- Modal Content (The Image) -->
-                <img class="modal-content">
-                <!-- Modal Caption (Image Text) -->
-                <div class="caption"></div>
-            </div>
-        </td>
-        <td style="padding-left: 20px;"><?= $m['gender']; ?></td>
-        <td style="padding-left: 20px;"><?= $m['wa']; ?></td>
-        <td>
-            <span class="status completed">Terima</span>
-            <span class="status pending">Tolak</span>
-        </td>
-    </tr>
-    <?php } ?>
-</tbody>
-
+            						<!-- The Modal -->
+            						<div class="modal">
+                						<!-- The Close Button -->
+                						<span class="close">X</span>
+                						<!-- Modal Content (The Image) -->
+                						<img class="modal-content">
+            						</div>
+        						</td>
+        						<td style="padding-left: 20px;"><?= $m['gender']; ?></td>
+        						<td style="padding-left: 20px;"><?= $m['wa']; ?></td>
+        						<td>
+									<a href="<?= base_url('Admin/terima/') . $m['id']; ?>" class="status completed">Terima</a>
+									<a href="<?= base_url('Admin/tolak/') . $m['id']; ?>" class="status pending">Tolak</a>
+        						</td>
+    						</tr>
+    						<?php }} ?>
+							
+							<?php if ($dataKosong) { ?>
+								<tr>
+            						<th colspan="6" style="text-align: center; padding: 20px;"><h1>Data Kosong!</h1></th>
+        						</tr>
+							<?php } ?>
+						</tbody>
 					</table>
 				</div>
 			</div>

@@ -8,22 +8,24 @@ class M_admin extends CI_Model
         return $query->result_array();
     }
     
-    public function tambahAdmin() 
+    public function terima($id) 
     {
         $data = [
-            'nik' => htmlspecialchars($this->input->post('nik', true)),
-            'nama' => htmlspecialchars($this->input->post('nama', true)),
-            'jabatan' => htmlspecialchars($this->input->post('jabatan', true)),
-            'nip' => htmlspecialchars($this->input->post('nip', true)),
-            'role' => 'admin',
-            'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT)
+            'status' => 'verified'
         ];
 
-        $this->db->insert('administrator', $data);
+        $this->db->where('id', $id);
+        $this->db->update('masyarakat', $data);
     }
 
-    public function hapus($id)
+    public function tolak($id)
     {
-        $this->db->delete('administrator', ['id' => $id]);
+        $this->db->delete('masyarakat', ['id' => $id]);
     } 
+
+    public function readPengaduan()
+    {
+        $query = $this->db->get('pengaduan');   
+        return $query->result_array();
+    }
 }

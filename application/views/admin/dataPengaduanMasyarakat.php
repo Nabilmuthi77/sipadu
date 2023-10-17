@@ -9,7 +9,7 @@
 	<!-- My CSS -->
 	<link rel="stylesheet" href="<?= base_url('assets/css/style.css'); ?>">
 
-	<title>AdminHub</title>
+	<title><?= $title; ?></title>
 </head>
 <body>
 
@@ -122,19 +122,32 @@
 						<thead>
 						<tr>
 								<th width="110px">Nama</th>
-								<th style="padding-left: 20px;">Judul Pengaduan</th>
+								<th style="padding-left: 20px;">Judul</th>
 								<th style="padding-left: 20px;">Isi Pengaduan</th>
 								<th style="padding-left: 20px;">Status</th>
 								<th style="padding-left: 20px;">Aksi</th>
 							</tr>
 						</thead>
 						<tbody>
+							<?php
+								$dataKosong = true;
+							 	foreach ($pengaduan as $pd) {
+							?>
 							<tr>
-								<td>Nabil Muthi Maulani</td>
-								<td style="padding-left: 20px;">Benih Padi diserang Hama</td>
-								<td style="padding-left: 20px;">ssimos, ipsam adipisci necessitatibus ab consectetur magnam earum ipsa ea consequuntur, id beatae.</td>
+								<td><?= $pd['nama']; ?></td>
+								<td style="padding-left: 20px;"><?= $pd['judul_pengaduan']; ?></td>
+								<td style="padding-left: 20px;"><?= $pd['isi_pengaduan']; ?></td>
+								<?php
+								if($pd['status'] == 'ditinjau') { ?>
+								<td style="padding-left: 20px;"><span class="status process">Ditinjau</span></td>
+								<td style="padding-left: 20px;"><span class="status completed">Proses</span></td>
+								<?php } elseif ($pd['status'] == 'diproses') { ?>
 								<td style="padding-left: 20px;"><span class="status process">Diproses</span></td>
 								<td style="padding-left: 20px;"><span class="status completed">Selesai</span></td>
+								<?php } else { ?>
+								<td style="padding-left: 20px;"><span class="status process">Selesai</span></td>
+								<td style="padding-left: 20px;"><span class="status completed">Hapus</span></td>
+								<?php } ?>
 							</tr>
 							<tr>
 								<td>Rio Adrian Putra</td>
@@ -150,6 +163,7 @@
 								<td style="padding-left: 20px;"><span class="status process">Diproses</span></td>
 								<td style="padding-left: 20px;"><span class="status completed">Selesai</span></td>
 							</tr>
+							<?php } ?>
 						</tbody>
 					</table>
 				</div>
