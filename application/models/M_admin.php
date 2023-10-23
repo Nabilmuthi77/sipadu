@@ -28,4 +28,29 @@ class M_admin extends CI_Model
         $query = $this->db->get('pengaduan');   
         return $query->result_array();
     }
+
+    public function proses($id) 
+    {
+        $data = [
+            'status' => 'diproses'
+        ];
+
+        $this->db->where('id', $id);
+        $this->db->update('pengaduan', $data);
+    }
+
+    public function selesai($id) 
+    {
+        $data = [
+            'status' => 'selesai'
+        ];
+
+        $this->db->where('id', $id);
+        $this->db->update('pengaduan', $data);
+    }
+
+    public function hapusPengaduan($id)
+    {
+        $this->db->delete('pengaduan', ['id' => $id]);
+    } 
 }

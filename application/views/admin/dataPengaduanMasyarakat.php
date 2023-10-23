@@ -54,7 +54,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="#" class="logout">
+				<a href="<?= base_url('AuthAdmin/logout'); ?>" class="logout">
 					<i class='bx bxs-log-out-circle' ></i>
 					<span class="text">Logout</span>
 				</a>
@@ -104,21 +104,22 @@
 						</li>
 					</ul>
 				</div>
-				<a href="#" class="btn-download">
+				<a href="#" onClick="tableToExcel()" class="btn-download">
 					<i class='bx bxs-cloud-download' ></i>
-					<span class="text">Download PDF</span>
+					<span class="text">Import EXCEL</span>
 				</a>
 			</div>
 
 
 			<div class="table-data">
 				<div class="order">
+				<?= $this->session->flashdata('message'); ?>
 					<div class="head">
 						<h3>List Data Pengaduan</h3>
 						<i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i>
 					</div>
-					<table>
+					<table class="table">
 						<thead>
 						<tr>
 								<th width="110px">Nama</th>
@@ -132,6 +133,8 @@
 							<?php
 								$dataKosong = true;
 							 	foreach ($pengaduan as $pd) {
+									if($pd) {
+										$dataKosong = false;
 							?>
 							<tr>
 								<td><?= $pd['nama']; ?></td>
@@ -139,31 +142,24 @@
 								<td style="padding-left: 20px;"><?= $pd['isi_pengaduan']; ?></td>
 								<?php
 								if($pd['status'] == 'ditinjau') { ?>
-								<td style="padding-left: 20px;"><span class="status process">Ditinjau</span></td>
-								<td style="padding-left: 20px;"><span class="status completed">Proses</span></td>
+								<td style="padding-left: 20px;"><span class="status reviewed">Ditinjau</span></td>
+								<td style="padding-left: 20px;"><a href="<?= base_url('Admin/proses/') . $pd['id']; ?>" class="status completed">Proses</a></td>
 								<?php } elseif ($pd['status'] == 'diproses') { ?>
 								<td style="padding-left: 20px;"><span class="status process">Diproses</span></td>
-								<td style="padding-left: 20px;"><span class="status completed">Selesai</span></td>
+								<td style="padding-left: 20px;"><a href="<?= base_url('Admin/selesai/') . $pd['id']; ?>" class="status completed">Selesai</a></td>
 								<?php } else { ?>
-								<td style="padding-left: 20px;"><span class="status process">Selesai</span></td>
-								<td style="padding-left: 20px;"><span class="status completed">Hapus</span></td>
+								<td style="padding-left: 20px;"><span class="status completed">Tuntas</span></td>
+								<td style="padding-left: 20px;"><a href="<?= base_url('Admin/hapusPengaduan/') . $pd['id']; ?>" class="status pending">Delete</a></td>
 								<?php } ?>
 							</tr>
-							<tr>
-								<td>Rio Adrian Putra</td>
-								<td style="padding-left: 20px;">Benih Padi Hancur</td>								
-								<td style="padding-left: 20px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati culpa minima iste non, earum hic quibusdam vitia.</td>
-								<td style="padding-left: 20px;"><span class="status process">Diproses</span></td>
-								<td style="padding-left: 20px;"><span class="status completed">Selesai</span></td>
-							</tr>
-							<tr>
-								<td>Ayu Adriana Putri</td>
-								<td style="padding-left: 20px;">Sawah Hijau Kuning</td>
-								<td style="padding-left: 20px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. ti! Ipsa qui distinctio dolores nam optio. Voluptate temporibus facilis incidunt aliquid.</td>
-								<td style="padding-left: 20px;"><span class="status process">Diproses</span></td>
-								<td style="padding-left: 20px;"><span class="status completed">Selesai</span></td>
-							</tr>
+							<?php }} ?>
+
+							<?php if ($dataKosong) { ?>
+								<tr>
+            						<th colspan="6" style="text-align: center; padding: 20px;"><h1>Data Kosong!</h1></th>
+        						</tr>
 							<?php } ?>
+
 						</tbody>
 					</table>
 				</div>
@@ -173,7 +169,18 @@
 	</section>
 	<!-- CONTENT -->
 	
+	
+	
+	
+
 
 	<script src="<?= base_url('assets/js/script.js'); ?>"></script>
+	<script>
+		function tableToExcel() {
+			var table2excel = new Table2Excel();
+  			table2excel.export(document.querySelectorAll("table.table"));
+		}  
+	</script>
+	<script src="<?= base_url('assets/js/table2excel.js'); ?>"></script>
 </body>
 </html>

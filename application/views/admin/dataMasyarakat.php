@@ -8,7 +8,6 @@
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<!-- My CSS -->
 	<link rel="stylesheet" href="<?= base_url('assets/css/style.css'); ?>">
-
 	<title><?= $title; ?></title>
 </head>
 <body>
@@ -54,7 +53,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="#" class="logout">
+				<a href="<?= base_url('AuthAdmin/logout'); ?>" class="logout">
 					<i class='bx bxs-log-out-circle' ></i>
 					<span class="text">Logout</span>
 				</a>
@@ -104,9 +103,9 @@
 						</li>
 					</ul>
 				</div>
-				<a href="#" class="btn-download">
+				<a href="#" onClick="tableToExcel()" class="btn-download">
 					<i class='bx bxs-cloud-download' ></i>
-					<span class="text">Download PDF</span>
+					<span class="text">Import EXCEL</span>
 				</a>
 			</div>
 
@@ -119,7 +118,7 @@
 						<i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i>
 					</div>
-					<table>
+					<table class="table">
 						<thead>
 							<tr>
 								<th width="110px">Nama</th>
@@ -164,5 +163,13 @@
 	
 
 	<script src="<?= base_url('assets/js/script.js'); ?>"></script>
+	<script>
+		function tableToExcel() {
+			var table2excel = new Table2Excel();
+  			table2excel.export(document.querySelectorAll("table.table"));
+		}  
+	</script>
+	<script src="<?= base_url('assets/js/table2excel.js'); ?>"></script>
+
 </body>
 </html>

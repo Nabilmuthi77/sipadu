@@ -9,7 +9,7 @@
 	<!-- My CSS -->
 	<link rel="stylesheet" href="<?= base_url('assets/css/style.css'); ?>">
 
-	<title>AdminHub</title>
+	<title><?= $title; ?></title>
 </head>
 <body>
 
@@ -54,7 +54,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="#" class="logout">
+				<a href="<?= base_url('AuthAdmin/logout'); ?>" class="logout">
 					<i class='bx bxs-log-out-circle' ></i>
 					<span class="text">Logout</span>
 				</a>
@@ -93,135 +93,78 @@
 		<main>
 			<div class="head-title">
 				<div class="left">
-					<h1>Dashboard</h1>
+					<h1>Account Settings</h1>
 					<ul class="breadcrumb">
 						<li>
-							<a href="#">Dashboard</a>
+							<a href="#">Admin </a>
 						</li>
 						<li><i class='bx bx-chevron-right' ></i></li>
 						<li>
-							<a class="active" href="#">Home</a>
+							<a class="active" href="#">Settings</a>
 						</li>
 					</ul>
 				</div>
-				<a href="#" class="btn-download">
-					<i class='bx bxs-cloud-download' ></i>
-					<span class="text">Download PDF</span>
-				</a>
 			</div>
-
-			<ul class="box-info">
-				<li>
-					<i class='bx bxs-calendar-check' ></i>
-					<span class="text">
-						<h3>1020</h3>
-						<p>New Order</p>
-					</span>
-				</li>
-				<li>
-					<i class='bx bxs-group' ></i>
-					<span class="text">
-						<h3>2834</h3>
-						<p>Visitors</p>
-					</span>
-				</li>
-				<li>
-					<i class='bx bxs-dollar-circle' ></i>
-					<span class="text">
-						<h3>$2543</h3>
-						<p>Total Sales</p>
-					</span>
-				</li>
-			</ul>
 
 
 			<div class="table-data">
 				<div class="order">
+				<?= $this->session->flashdata('message'); ?>
 					<div class="head">
-						<h3>Recent Orders</h3>
+						<h3>Account Information</h3>
 						<i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i>
 					</div>
 					<table>
-						<thead>
-							<tr>
-								<th>User</th>
-								<th>Date Order</th>
-								<th>Status</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-									<img src="<?= base_url("/assets/gambar/people.png"); ?>">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="<?= base_url("/assets/gambar/people.png"); ?>">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="<?= base_url("/assets/gambar/people.png"); ?>">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status process">Process</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="<?= base_url("/assets/gambar/people.png"); ?>">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="<?= base_url("/assets/gambar/people.png"); ?>">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
-						</tbody>
+						<tr>
+							<td>Nama</td>
+							<td width="20px">:</td>
+							<td><?= $compareData["nama"]; ?></td>
+						</tr>
+						<tr>
+							<td>NIP</td>
+							<td>:</td>
+							<td><?= $compareData["nip"]; ?></td>
+						</tr>
+						<tr>
+							<td>NIK</td>
+							<td>:</td>
+							<td><?= $compareData["nik"]; ?></td>
+						</tr>
+						<tr>
+							<td>Jabatan</td>
+							<td>:</td>
+							<td><?= $compareData["jabatan"]; ?></td>
+						</tr>
+						<tr>
+							<td>Role</td>
+							<td>:</td>
+							<td><?= $compareData["role"]; ?></td>
+						</tr>
 					</table>
 				</div>
 				<div class="todo">
 					<div class="head">
-						<h3>Todos</h3>
-						<i class='bx bx-plus' ></i>
+						<h3>Change Password?</h3>
+						<i class='bx bx-edit' ></i>
 						<i class='bx bx-filter' ></i>
 					</div>
-					<ul class="todo-list">
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="not-completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="not-completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-					</ul>
+					<div class="body">
+					<form action="<?= base_url('Admin/setting'); ?>" method="post">
+                                    <label for="password"> Kata Sandi Lama *</label> <br>
+                                    <input style="border: none; border-radius: 5px; width: 100%; padding: 10px; background-color: lavender;" type="password"
+                                        name="password" id="password">
+                                        <?= form_error('password', '<small style="color: red;"><i>', '</i></small>'); ?>  <br> <br>
+									<label for="password1"> Kata Sandi Baru *</label> <br>
+                                    <input style="border: none; border-radius: 5px; width: 100%; padding: 10px; background-color: lavender;" type="password"
+                                        name="password1" id="password">  
+                                        <?= form_error('password1', '<small style="color: red;"><i>', '</i></small>'); ?> <br> <br>
+									<label for="password2"> Ulangi Kata Sandi Baru *</label> <br>
+									<input style="border: none; border-radius: 5px; width: 100%; padding: 10px; background-color: lavender;" type="password"
+                                        name="password2" id="password">  <br> <br>
+									<button type="submit" style="border: none; border-radius: 5px; width: 100%; padding: 10px; background-color: #3C91E6; color: white; font-size: 18px;"><b>Ganti Password</b></button>
+          			</form>
+                    </div>
 				</div>
 			</div>
 		</main>
