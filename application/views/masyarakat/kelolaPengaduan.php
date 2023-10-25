@@ -51,6 +51,7 @@
                     <ul class="hitam">
                         <li><a href="#kelola" >Lihat Daftar Pengaduan </a></li>
                         <li><a href="<?= base_url('Masyarakat'); ?>" >Buat Pengaduan Baru</a></li>
+                        <li><a href="<?= base_url('Masyarakat/penilaian'); ?>" >Kasih Rating Penilaian</a></li>
                     </ul>
                     <div class="text-center">
                         <a href="<?= base_url('auth/logout'); ?>" class="badge bg-dark text-white w-75 mb-2">Logout</a>

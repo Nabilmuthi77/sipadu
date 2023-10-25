@@ -57,4 +57,10 @@ class Masyarakat extends CI_Controller
         );
         redirect('Masyarakat/kelolaPengaduan');
     }
+
+	public function penilaian()
+	{
+		$data['title'] = 'Rating Penilaian';
+		$this->load->view('masyarakat/ratingPenilaian', $data);
+	}
 }
