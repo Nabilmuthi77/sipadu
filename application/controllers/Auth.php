@@ -119,6 +119,7 @@ class Auth extends CI_Controller
                 'alamat' => htmlspecialchars($this->input->post('alamat', true)),
                 'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
                 'status' => 'unverified',
+                'id_service' => 0,
                 'selfie' => $fileName
             ];
 

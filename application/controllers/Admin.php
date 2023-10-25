@@ -15,12 +15,18 @@ class Admin extends CI_Controller
 			}
 		}
 		$this->load->model('M_admin');
+		$this->load->model('Service');
 	}
 
 
 	public function index()
 	{
-		$this->load->view('admin/index');
+		$data['title'] = 'Dashboard';
+		$data['graph'] = $this->Service->graph();
+		$data['cm'] = $this->Service->countMasyarakat();
+		$data['dt'] = $this->Service->ditinjau();
+		$data['dp'] = $this->Service->diproses();
+		$this->load->view('admin/index', $data);
 	}
 	
 

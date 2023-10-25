@@ -8,8 +8,12 @@
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<!-- My CSS -->
 	<link rel="stylesheet" href="<?= base_url('assets/css/style.css'); ?>">
-
-	<title>AdminHub</title>
+	<style>
+		.todo .container {
+    height: 100%; /* Mengisi seluruh tinggi kontainer */
+}
+	</style>
+	<title><?= $title; ?></title>
 </head>
 <body>
 
@@ -106,28 +110,30 @@
 				</div>
 			</div>
 
+			
+
 			<ul class="box-info">
-				<li>
-					<i class='bx bxs-calendar-check' ></i>
-					<span class="text">
-						<h3>1020</h3>
-						<p>New Order</p>
-					</span>
-				</li>
 				<li>
 					<i class='bx bxs-group' ></i>
 					<span class="text">
-						<h3>2834</h3>
-						<p>Visitors</p>
+						<h3><?= $cm; ?></h3>
+						<p>Data Masyarakat</p>
 					</span>
 				</li>
 				<li>
-					<i class='bx bxs-dollar-circle' ></i>
+					<i class='bx bxs-low-vision' ></i>
 					<span class="text">
-						<h3>$2543</h3>
-						<p>Total Sales</p>
+						<h3><?= $dt; ?></h3>
+						<p>Data Pengaduan Ditinjau</p>
 					</span>
-				</li>
+				</li>				
+				<li>
+					<i class='bx bxs-time' ></i>
+					<span class="text">
+						<h3><?= $dp; ?></h3>
+						<p>Data Pengaduan Diproses</p>
+					</span>
+				</li>	
 			</ul>
 
 
@@ -138,86 +144,39 @@
 						<i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i>
 					</div>
-					<table>
-						<thead>
-							<tr>
-								<th>User</th>
-								<th>Date Order</th>
-								<th>Status</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-									<img src="<?= base_url("/assets/gambar/people.png"); ?>">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="<?= base_url("/assets/gambar/people.png"); ?>">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="<?= base_url("/assets/gambar/people.png"); ?>">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status process">Process</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="<?= base_url("/assets/gambar/people.png"); ?>">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="<?= base_url("/assets/gambar/people.png"); ?>">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
-						</tbody>
-					</table>
+					<div class="container">
+    					<canvas id="myChart"></canvas>
+  					</div>
 				</div>
+				
 				<div class="todo">
 					<div class="head">
 						<h3>Todos</h3>
 						<i class='bx bx-plus' ></i>
 						<i class='bx bx-filter' ></i>
 					</div>
-					<ul class="todo-list">
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="not-completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="not-completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-					</ul>
+					<div class="container" style="background-color: indigo; max-height: 300px; overflow: auto;">
+					<table>
+						<tr>
+						<th style="background-color: lightgreen;">Sangat Puas</th>
+						</tr>
+						<hr>
+						<tr>
+						<td style="background-color: lightsalmon;"> Kemal
+						</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+						<th style="background-color: lightgreen;">Sangat Puas</th>
+						</tr>
+						<hr>
+						<tr>
+						<td style="background-color: lightsalmon;"> Kemal
+						</td>
+						</tr>
+					</table>
+					</div>
 				</div>
 			</div>
 		</main>
@@ -227,5 +186,62 @@
 	
 
 	<script src="<?= base_url('assets/js/script.js'); ?>"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script type="text/javascript">
+	//chart Bar
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [
+            <?php
+            if (count($graph) > 0) {
+                foreach ($graph as $data) {
+                    echo "'" . $data->pelayanan . "',";
+                }
+            }
+            ?>
+        ],
+        datasets: [{
+            label: 'Rating Masyarakat',
+            backgroundColor: [
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(54, 162, 235, 0.2)'
+			],
+            borderColor: [
+      'rgb(255, 99, 132)',
+      'rgb(255, 159, 64)',
+      'rgb(153, 102, 255)',
+      'rgb(75, 192, 192)',
+      'rgb(54, 162, 235)'
+			],
+			borderWidth: 1,
+            data: [
+                <?php
+                if (count($graph) > 0) {
+                    foreach ($graph as $data) {
+                        echo $data->total . ", ";
+                    }
+                }
+                ?>
+            ]
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                }
+            }]
+        }
+    }
+});
+
+</script>
+
 </body>
 </html>
