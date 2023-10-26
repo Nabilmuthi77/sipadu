@@ -21,34 +21,34 @@
     }
 
     .star-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 10px;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    text-align: center; /* Untuk mengatur teks ke tengah */
+}
 
-    .star-label {
-        color: green;
-        /* Ubah warna menjadi hijau */
-        font-size: 40px;
-        /* Ubah ukuran bintang sesuai kebutuhan */
-        cursor: pointer;
-    }
+.star-label {
+    color: green;
+    font-size: 20px; /* Ubah ukuran font label sesuai kebutuhan */
+    cursor: pointer;
+    margin-top: 5px; /* Jarak antara bintang dan label */
+}
 
-    /* Style for radio buttons, you can use images for stars */
-    input[type="radio"] {
-        display: none;
-        /* Sembunyikan tombol radio default */
-    }
 
-    input[type="radio"]+label::before {
-        content: "★";
-        /* Unicode karakter untuk bintang */
-        font-size: 40px;
-        /* Ubah ukuran bintang sesuai kebutuhan */
-        color: green;
-        /* Ubah warna bintang sesuai kebutuhan */
-    }
+/* Style for radio buttons, you can use images for stars */
+input[type="radio"] {
+    display: none;
+    /* Sembunyikan tombol radio default */
+}
+
+input[type="radio"]+label::before {
+    content: "★";
+    font-size: 80px; /* Ubah ukuran bintang sesuai kebutuhan */
+    color: green;
+    /* Ubah warna bintang sesuai kebutuhan */
+}
+
 
     /* Style untuk label tombol radio yang terpilih */
     input[type="radio"]:checked+label::before {
