@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2023 at 10:36 AM
+-- Generation Time: Oct 30, 2023 at 09:54 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -43,8 +43,11 @@ CREATE TABLE `administrator` (
 --
 
 INSERT INTO `administrator` (`id`, `nik`, `nama`, `jabatan`, `nip`, `role`, `password`) VALUES
-(1, '3215143476982376', 'Agung Sahputra', 'Manager Kehutanan', '199056982365906598', 'superAdmin', '$2y$10$BnDLLEs8MVMliTemqfqyruthI1SQ7oggZlV27yI/SlaD/elHlxrG.'),
-(2, '3215143476982377', 'Nanad Hutomang', 'Perwira Kehutanan', '199056982365906599', 'admin', '$2y$10$BnDLLEs8MVMliTemqfqyruthI1SQ7oggZlV27yI/SlaD/elHlxrG.');
+(1, '3215143476982376', 'Eichiro Oda', 'Sensei', '199056982365906598', 'superAdmin', '$2y$10$BnDLLEs8MVMliTemqfqyruthI1SQ7oggZlV27yI/SlaD/elHlxrG.'),
+(4, '3215143476982374', 'Monkey D Luffy', 'Yonkou', '199056982365906594', 'admin', '$2y$10$KSK67KvRhb9uXWVbv8CeH.tAJ5M9dLnxQ5oQ1.9/taCMgXz4koPBe'),
+(7, '3215143476982371', 'Chopper', 'Doctor', '199056982365906591', 'admin', '$2y$10$VmhM25Y9aUVtrPbskkpIMeVIALgjH5Q6eg/mVgQPf1T5VNw4MYXxO'),
+(8, '3215143476982372', 'Nico Robin', 'Arkeolog', '199056982365906592', 'admin', '$2y$10$7jIE9pmNyRatq2md1AVc..kO1SYvuWw3SxOD39tcAl6j84IiozADK'),
+(9, '3215143476982373', 'Sanji', 'Chef', '199056982365906593', 'admin', '$2y$10$.pr58LXvrbxM5G8jj5L3k.4PpYsOQ220SunM2IEQRSw0aqr/O6Sfy');
 
 -- --------------------------------------------------------
 
@@ -62,17 +65,18 @@ CREATE TABLE `masyarakat` (
   `alamat` varchar(100) NOT NULL,
   `selfie` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `status` enum('verified','unverified') NOT NULL
+  `status` enum('verified','unverified') NOT NULL,
+  `id_service` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `masyarakat`
 --
 
-INSERT INTO `masyarakat` (`id`, `nik`, `nama`, `tgl_lahir`, `gender`, `wa`, `alamat`, `selfie`, `password`, `status`) VALUES
-(1, '3126982365906598', 'Mulyanto Aji Prasetyo', '2023-09-07', 'Laki-laki', '082258941502', 'Kampung Lohan, Desa Gempol Tanjung, Rawa Rontek, Babad Padjajaran', 'hj.jpeg', '$2y$10$BnDLLEs8MVMliTemqfqyruthI1SQ7oggZlV27yI/SlaD/elHlxrG.', 'unverified'),
-(2, '3126982365906597', 'Mulyanti Aji Prasetiwi', '2023-09-26', 'Perempuan', '082258941502', 'Kampung Lohan, Desa Gempol Tanjung, Rawa Kenyot, Babad Kahuruan', 'out.png', '$2y$10$BnDLLEs8MVMliTemqfqyruthI1SQ7oggZlV27yI/SlaD/elHlxrG.', 'verified'),
-(4, '3210', 'Sri Mulyanto', '2023-10-07', 'Laki-laki', '081', 'Negara Api', 'ishtar-code.png', '$2y$10$xIif7TAb0qf9uy6B4MiXMOHzamY7r1BrC5mhWKgKuyJ56nNmYPBZ6', 'verified');
+INSERT INTO `masyarakat` (`id`, `nik`, `nama`, `tgl_lahir`, `gender`, `wa`, `alamat`, `selfie`, `password`, `status`, `id_service`) VALUES
+(2, '3126982365906597', 'Mulyanti Aji Prasetiwi', '2023-09-26', 'Perempuan', '082258941502', 'Kampung Lohan, Desa Gempol Tanjung, Rawa Kenyot, Babad Kahuruan', 'out.png', '$2y$10$BnDLLEs8MVMliTemqfqyruthI1SQ7oggZlV27yI/SlaD/elHlxrG.', 'verified', 1),
+(4, '3126982365906598', 'Mulyanti Aji Prasetyo', '2023-10-11', 'Laki-laki', '34343434', 'asdsasasas', 'nabil.jpg', '$2y$10$BnDLLEs8MVMliTemqfqyruthI1SQ7oggZlV27yI/SlaD/elHlxrG.', 'verified', 0),
+(5, '3215140909090909', 'Rio Adrian Putra', '2023-10-05', 'Laki-laki', '021', 'Gempol Sari', 'Rice-New-Superior-Varieties.jpg', '$2y$10$Gm44srvNBTUm09aiiAvfA.HY/UkRNR/a0KlbugWbQmBMXbacrH4Ru', 'verified', 0);
 
 -- --------------------------------------------------------
 
@@ -95,7 +99,34 @@ CREATE TABLE `pengaduan` (
 --
 
 INSERT INTO `pengaduan` (`id`, `nik`, `nama`, `tgl_pengaduan`, `judul_pengaduan`, `isi_pengaduan`, `status`) VALUES
-(1, '3126982365906598', 'Mulyanto Aji Prasetyo', 1686155948, 'Benih Padi Hancur', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati culpa minima iste non, earum hic quibusdam vitia.', 'ditinjau');
+(8, '3126982365906597', 'Mulyanti Aji Prasetiwi', 1698027004, 'Benih Padi Licin', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.', 'ditinjau'),
+(9, '3126982365906597', 'Mulyanti Aji Prasetiwi', 1698027028, 'Benih Padi Kering', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.', 'ditinjau'),
+(10, '3126982365906598', 'Mulyanti Aji Prasetyo', 1698027093, 'Benih Padi Meledak', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.', 'diproses'),
+(11, '3126982365906598', 'Mulyanti Aji Prasetyo', 1698027138, 'Benih Padi Busuk', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.', 'selesai'),
+(12, '3215140909090909', 'Rio Adrian Putra', 1698282350, 'Padi Meleot', 'Padi kekeringan', 'ditinjau');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `service`
+--
+
+CREATE TABLE `service` (
+  `id` int(11) NOT NULL,
+  `pelayanan` varchar(16) NOT NULL,
+  `total` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `service`
+--
+
+INSERT INTO `service` (`id`, `pelayanan`, `total`) VALUES
+(1, 'Sangat Puas', 8),
+(2, 'Cukup Puas', 19),
+(3, 'Puas', 6),
+(4, 'Tidak Puas', 3),
+(5, 'Kurang Puas', 10);
 
 --
 -- Indexes for dumped tables
@@ -120,6 +151,12 @@ ALTER TABLE `pengaduan`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `service`
+--
+ALTER TABLE `service`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -127,19 +164,25 @@ ALTER TABLE `pengaduan`
 -- AUTO_INCREMENT for table `administrator`
 --
 ALTER TABLE `administrator`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `masyarakat`
 --
 ALTER TABLE `masyarakat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `pengaduan`
 --
 ALTER TABLE `pengaduan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `service`
+--
+ALTER TABLE `service`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
