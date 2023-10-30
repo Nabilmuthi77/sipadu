@@ -22,83 +22,89 @@
 
     .star-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Mengatur tampilan menjadi kolom */
     align-items: center;
     margin: 10px;
-    text-align: center; /* Untuk mengatur teks ke tengah */
+    margin-top: 0;
+    text-align: center;
 }
 
 .star-label {
     color: green;
-    font-size: 20px; /* Ubah ukuran font label sesuai kebutuhan */
+    font-size: 20px;
     cursor: pointer;
-    margin-top: 5px; /* Jarak antara bintang dan label */
+    /* min-width: 100px; */
 }
 
 
-/* Style for radio buttons, you can use images for stars */
 input[type="radio"] {
     display: none;
-    /* Sembunyikan tombol radio default */
 }
 
 input[type="radio"]+label::before {
     content: "★";
-    font-size: 80px; /* Ubah ukuran bintang sesuai kebutuhan */
+    font-size: 80px; 
     color: green;
-    /* Ubah warna bintang sesuai kebutuhan */
 }
 
 
-    /* Style untuk label tombol radio yang terpilih */
     input[type="radio"]:checked+label::before {
-        color: gold;
-        /* Ubah warna bintang yang terpilih */
+        color: red;
     }
     </style>
 </head>
 
 <body>
-    <section class="container bg-dark vh-100">
-        <div class="row bg-danger mx-auto vh-100">
-            <div class="col-lg-7 bg-success mx-auto d-flex align-items-center">
+    <section class="container vh-100">
+        <div class="row mx-auto vh-100">
+            <div class="col-lg-7 mx-auto d-flex align-items-center">
                 <div class="card border-success mb-3 mx-auto">
                     <div class="card-header bg-transparent border-success">
                         <h2 class="text-center">Kasih Rating Penilaian?</h2>
                     </div>
                     <div class="card-body">
-                        <form action="#" method="#">
+                        <form action="<?= base_url('Masyarakat/penilaian'); ?>" method="post"  style="width: 100%;">
+                            <?= form_error('rating', '<small  style="background-color: lightsalmon; border-radius: 5px; padding: 4px 10px; text-align: center; color: white;"> <i>', '</i> </small>'); ?> <br>
                             <div class="radio-group">
                                 <div class="star-container">
-                                    <input type="radio" id="star5" name="rating" value="5" />
-                                    <label for="star5" class="star-label">Sangat Puas</label>
+                                    <input type="radio" id="star5" name="rating" value="1" />
+                                    <label for="star5" class="star-label">
+                                        <span>Sangat Puas</span>
+                                    </label>
                                 </div>
-
                                 <div class="star-container">
-                                    <input type="radio" id="star4" name="rating" value="4" />
-                                    <label for="star4" class="star-label">Cukup Puas</label>
+                                    <input type="radio" id="star4" name="rating" value="2" />
+                                    <label for="star4" class="star-label">
+                                        <span>Cukup Puas</span>
+                                    </label>
                                 </div>
 
                                 <div class="star-container">
                                     <input type="radio" id="star3" name="rating" value="3" />
-                                    <label for="star3" class="star-label">Puas</label>
+                                    <label for="star3" class="star-label">
+                                        <span>Puas</span> 
+                                    </label>
                                 </div>
 
                                 <div class="star-container">
-                                    <input type="radio" id="star2" name="rating" value="2" />
-                                    <label for="star2" class="star-label">Tidak Puas</label>
+                                    <input type="radio" id="star2" name="rating" value="4" />
+                                    <label for="star2" class="star-label">
+                                        <span>Tidak Puas</span> 
+                                    </label>
                                 </div>
 
                                 <div class="star-container">
-                                    <input type="radio" id="star1" name="rating" value="2" />
-                                    <label for="star1" class="star-label">Kurang Puas</label>
+                                    <input type="radio" id="star1" name="rating" value="5" />
+                                    <label for="star1" class="star-label">
+                                        <span>Kurang Puas</span>
+                                    </label>
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                    <div class="card-footer border-success text-center">
-                        <button type="submit" class="btn btn-success w-50">Kirim Penilaian</button>
-                    </div>
+                        </div>
+                        <div class="card-footer border-success text-center">                        
+                            <button type="submit" class="btn btn-success w-50 my-3">Kirim Penilaian</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

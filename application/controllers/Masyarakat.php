@@ -60,7 +60,21 @@ class Masyarakat extends CI_Controller
 
 	public function penilaian()
 	{
-		$data['title'] = 'Rating Penilaian';
-		$this->load->view('masyarakat/ratingPenilaian', $data);
+		$this->form_validation->set_rules('rating', 'Penilaian', 'required', [
+			'required' => "Penilaian Harus Diisi!"
+		]);
+		if ($this->form_validation->run() == false) {
+			$data['title'] = 'Rating Penilaian';
+			$this->load->view('masyarakat/ratingPenilaian', $data);
+		} else {
+			$this->M_masyarakat->penilaian();
+			$this->session->set_flashdata(
+				'message',
+				'<div class="alert alert-success alert-dismissible fade show" role="alert">
+			<strong> Rating Penilaian Berhasil Dikirim ! </strong>
+			</div> <hr>'
+			);
+			redirect('Masyarakat/kelolaPengaduan');
+		}
 	}
 }
