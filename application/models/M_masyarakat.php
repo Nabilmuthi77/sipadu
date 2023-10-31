@@ -32,37 +32,47 @@ class M_masyarakat extends CI_Model
 
     public function penilaian()
     {
-       $user = $this->session->userdata();
-       $newRating = $this->input->post('rating');
-
-      // Ambil data rating sebelumnya
-      $previousRating = $this->db->get_where('masyarakat', ['nik' => $user['nik']])->row_array();
-
-      // Ambil data service yang sedang dirating
-      $serviceData = $this->db->get_where('service', ['id' => $previousRating['id_service']])->row_array();
-
-       // Inisialisasi total
-      $total = $serviceData['total'];
-
-      // Periksa apakah ada perubahan rating
-      if ($newRating != $previousRating['id_service']) {
-           // Kurangi total untuk rating sebelumnya
-           $total--;
-       }
-
-       // Tambahkan total untuk rating yang baru
-       $total++;
-
-        // Simpan total yang telah dihitung
-       $data = ['total' => $total];
-       $this->db->where('id', $previousRating['id_service']);
-       $this->db->update('service', $data);
-
-        // Simpan rating yang baru
-       $data = ['id_service' => $newRating];
-       $this->db->where('nik', $user['nik']);
-       $this->db->update('masyarakat', $data);
-
+        $user = $this->session->userdata();
+        $newRating = $this->input->post('rating');
+    
+        // Ambil data rating sebelumnya
+        $previousRating = $this->db->get_where('masyarakat', ['nik' => $user['nik']])->row_array();
+    
+        // Jika data sebelumnya ditemukan
+        if ($previousRating) {
+            // Ambil data service yang sedang dirating
+            $previousServiceData = $this->db->get_where('service', ['id' => $previousRating['id_service']])->row_array();
+    
+            // Inisialisasi total
+            $previousTotal = $previousServiceData['total'];
+    
+            // Periksa apakah ada perubahan rating
+            if ($newRating != $previousRating['id_service']) {
+                // Kurangi total untuk rating sebelumnya
+                $previousTotal--;
+                $data = ['total' => $previousTotal];
+                $this->db->where('id', $previousRating['id_service']);
+                $this->db->update('service', $data);
+            }
+    
+            // Ambil data service yang baru dirating
+            $newServiceData = $this->db->get_where('service', ['id' => $newRating])->row_array();
+    
+            // Inisialisasi total baru
+            $newTotal = $newServiceData['total'];
+    
+            // Tambahkan total untuk rating yang baru
+            $newTotal++;
+    
+            // Simpan total yang telah dihitung
+            $data = ['total' => $newTotal];
+            $this->db->where('id', $newRating);
+            $this->db->update('service', $data);
+    
+            // Simpan rating yang baru
+            $data = ['id_service' => $newRating];
+            $this->db->where('nik', $user['nik']);
+            $this->db->update('masyarakat', $data);
+        }
     }
-
 }
