@@ -27,4 +27,5 @@ public function diproses()
 	return $query->num_rows();
 }
 
+
 }

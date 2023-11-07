@@ -76,9 +76,9 @@
 			<i class='bx bx-menu' ></i>
 			<!-- <a href="#" class="nav-link">Categories</a> -->
 			<form action="#">
-				<div class="form-input">
+				<div class="form-input" style="display: none;">
 					<input type="search" placeholder="Search...">
-					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+					<button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
 				</div>
 			</form>
 			<input type="checkbox" id="switch-mode" hidden>
@@ -140,43 +140,11 @@
 			<div class="table-data">
 				<div class="order">
 					<div class="head">
-						<h3>Recent Orders</h3>
-						<i class='bx bx-search' ></i>
-						<i class='bx bx-filter' ></i>
+						<h3>Rate Voting Masyarakat</h3>
 					</div>
 					<div class="container">
     					<canvas id="myChart"></canvas>
   					</div>
-				</div>
-				
-				<div class="todo">
-					<div class="head">
-						<h3>Todos</h3>
-						<i class='bx bx-plus' ></i>
-						<i class='bx bx-filter' ></i>
-					</div>
-					<div class="container" style="background-color: indigo; max-height: 300px; overflow: auto;">
-					<table>
-						<tr>
-						<th style="background-color: lightgreen;">Sangat Puas</th>
-						</tr>
-						<hr>
-						<tr>
-						<td style="background-color: lightsalmon;"> Kemal
-						</td>
-						</tr>
-					</table>
-					<table>
-						<tr>
-						<th style="background-color: lightgreen;">Sangat Puas</th>
-						</tr>
-						<hr>
-						<tr>
-						<td style="background-color: lightsalmon;"> Kemal
-						</td>
-						</tr>
-					</table>
-					</div>
 				</div>
 			</div>
 		</main>

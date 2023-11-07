@@ -71,7 +71,7 @@
 			<i class='bx bx-menu' ></i>
 			<!-- <a href="#" class="nav-link">Categories</a> -->
 			<form action="#">
-				<div class="form-input">
+				<div class="form-input" style="display: none;">
 					<input type="search" placeholder="Search...">
 					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
 				</div>
@@ -115,8 +115,6 @@
 					<?= $this->session->flashdata('message'); ?>
 					<div class="head">
 						<h3>List Data Masyarakat</h3>
-						<i class='bx bx-search' ></i>
-						<i class='bx bx-filter' ></i>
 					</div>
 					<table class="table">
 						<thead>
