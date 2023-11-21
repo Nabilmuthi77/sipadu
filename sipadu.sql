@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2023 at 09:54 AM
+-- Generation Time: Nov 21, 2023 at 02:08 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -74,9 +74,8 @@ CREATE TABLE `masyarakat` (
 --
 
 INSERT INTO `masyarakat` (`id`, `nik`, `nama`, `tgl_lahir`, `gender`, `wa`, `alamat`, `selfie`, `password`, `status`, `id_service`) VALUES
-(2, '3126982365906597', 'Mulyanti Aji Prasetiwi', '2023-09-26', 'Perempuan', '082258941502', 'Kampung Lohan, Desa Gempol Tanjung, Rawa Kenyot, Babad Kahuruan', 'out.png', '$2y$10$BnDLLEs8MVMliTemqfqyruthI1SQ7oggZlV27yI/SlaD/elHlxrG.', 'verified', 1),
-(4, '3126982365906598', 'Mulyanti Aji Prasetyo', '2023-10-11', 'Laki-laki', '34343434', 'asdsasasas', 'nabil.jpg', '$2y$10$BnDLLEs8MVMliTemqfqyruthI1SQ7oggZlV27yI/SlaD/elHlxrG.', 'verified', 0),
-(5, '3215140909090909', 'Rio Adrian Putra', '2023-10-05', 'Laki-laki', '021', 'Gempol Sari', 'Rice-New-Superior-Varieties.jpg', '$2y$10$Gm44srvNBTUm09aiiAvfA.HY/UkRNR/a0KlbugWbQmBMXbacrH4Ru', 'verified', 0);
+(2, '3126982365906597', 'Mulyanti Aji Prasetiwi', '2023-09-26', 'Perempuan', '082258941502', 'Kampung Lohan, Desa Gempol Tanjung, Rawa Kenyot, Babad Kahuruan', 'profile.png', '$2y$10$BnDLLEs8MVMliTemqfqyruthI1SQ7oggZlV27yI/SlaD/elHlxrG.', 'verified', 4),
+(4, '3126982365906598', 'Mulyanti Aji Prasetyo', '2023-10-11', 'Laki-laki', '34343434', 'asdsasasas', 'profile.png', '$2y$10$BnDLLEs8MVMliTemqfqyruthI1SQ7oggZlV27yI/SlaD/elHlxrG.', 'verified', 0);
 
 -- --------------------------------------------------------
 
@@ -99,7 +98,7 @@ CREATE TABLE `pengaduan` (
 --
 
 INSERT INTO `pengaduan` (`id`, `nik`, `nama`, `tgl_pengaduan`, `judul_pengaduan`, `isi_pengaduan`, `status`) VALUES
-(8, '3126982365906597', 'Mulyanti Aji Prasetiwi', 1698027004, 'Benih Padi Licin', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.', 'ditinjau'),
+(8, '3126982365906597', 'Mulyanti Aji Prasetiwi', 1698027004, 'Benih Padi Licin', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.', 'diproses'),
 (9, '3126982365906597', 'Mulyanti Aji Prasetiwi', 1698027028, 'Benih Padi Kering', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.', 'ditinjau'),
 (10, '3126982365906598', 'Mulyanti Aji Prasetyo', 1698027093, 'Benih Padi Meledak', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.', 'diproses'),
 (11, '3126982365906598', 'Mulyanti Aji Prasetyo', 1698027138, 'Benih Padi Busuk', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.', 'selesai'),
@@ -122,10 +121,10 @@ CREATE TABLE `service` (
 --
 
 INSERT INTO `service` (`id`, `pelayanan`, `total`) VALUES
-(1, 'Sangat Puas', 8),
+(1, 'Sangat Puas', 9),
 (2, 'Cukup Puas', 19),
-(3, 'Puas', 6),
-(4, 'Tidak Puas', 3),
+(3, 'Puas', 7),
+(4, 'Tidak Puas', 5),
 (5, 'Kurang Puas', 10);
 
 --
@@ -170,7 +169,7 @@ ALTER TABLE `administrator`
 -- AUTO_INCREMENT for table `masyarakat`
 --
 ALTER TABLE `masyarakat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `pengaduan`
