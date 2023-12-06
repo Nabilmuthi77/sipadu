@@ -120,9 +120,11 @@
 					<table class="table">
 						<thead>
 						<tr>
-								<th width="110px">Nama</th>
+								<th width="130px">Nama</th>
+								<th width="110px">Tgl Dibuat</th>
 								<th style="padding-left: 20px;">Judul</th>
 								<th style="padding-left: 20px;">Isi Pengaduan</th>
+								<th style="padding-left: 20px;">Penyelesaian</th>
 								<th style="padding-left: 20px;">Status</th>
 								<th style="padding-left: 20px;">Aksi</th>
 							</tr>
@@ -136,17 +138,29 @@
 							?>
 							<tr>
 								<td><?= $pd['nama']; ?></td>
+								<td><?= date('d/m/Y', $pd['tgl_pengaduan']); ?></td>
 								<td style="padding-left: 20px;"><?= $pd['judul_pengaduan']; ?></td>
 								<td style="padding-left: 20px;"><?= $pd['isi_pengaduan']; ?></td>
+								
 								<?php
 								if($pd['status'] == 'ditinjau') { ?>
+								<td style="padding-left: 20px;"><span style="color: red;"><?= "Silakan Proses Terlebih Dahulu!"; ?></span></td>
 								<td style="padding-left: 20px;"><span class="status reviewed">Ditinjau</span></td>
 								<td style="padding-left: 20px;"><a href="<?= base_url('Admin/proses/') . $pd['id']; ?>" class="status completed">Proses</a></td>
 								<?php } elseif ($pd['status'] == 'diproses') { ?>
+
+								<form action="<?= base_url('Admin/selesai/') . $pd['id']; ?>" method="post">
+								<td style="padding-left: 20px;">
+									<input type="hidden" value="<?= $pd['id']; ?>" name="id">
+									<textarea name="penyelesaian" cols="30" rows="2"></textarea>
+								</td>
 								<td style="padding-left: 20px;"><span class="status process">Diproses</span></td>
-								<td style="padding-left: 20px;"><a href="<?= base_url('Admin/selesai/') . $pd['id']; ?>" class="status completed">Selesai</a></td>
+								<td style="padding-left: 20px;"><button type="submit" class="status success" style="border: none; outline: none; box-shadow: none; cursor: pointer; -webkit-tap-highlight-color: transparent;"><b>Submit</b></button></td>
+								</form>					
+
 								<?php } else { ?>
-								<td style="padding-left: 20px;"><span class="status completed">Tuntas</span></td>
+								<td style="padding-left: 20px;"><?= $pd['penyelesaian']; ?></td>
+								<td style="padding-left: 20px;"><span class="status tuntas">Tuntas</span></td>
 								<td style="padding-left: 20px;"><a href="<?= base_url('Admin/hapusPengaduan/') . $pd['id']; ?>" class="status pending">Delete</a></td>
 								<?php } ?>
 							</tr>

@@ -7,19 +7,39 @@ class M_admin extends CI_Model
         $query = $this->db->get('masyarakat');   
         return $query->result_array();
     }
-    
+     
     public function terima($id) 
     {
-        $data = [
-            'status' => 'verified'
-        ];
+        $query = $this->db->get_where('masyarakat', array('id' => $id));
+        $result = $query->row();
+        $namaFile = $result->selfie;
 
+        // Menghapus gambar secara lokal jika file tersebut ada
+        $lokasiGambar = 'assets/gambar/' . $namaFile; 
+        if (file_exists($lokasiGambar)) {
+            unlink($lokasiGambar); // Hapus file gambar
+        }
+
+        // Update status di database
+        $data = [
+        'status' => 'verified',
+        'selfie' => 'profile.png'
+        ];
         $this->db->where('id', $id);
         $this->db->update('masyarakat', $data);
     }
 
     public function tolak($id)
     {
+        $query = $this->db->get_where('masyarakat', array('id' => $id));
+        $result = $query->row();
+        $namaFile = $result->selfie;
+
+        // Menghapus gambar secara lokal jika file tersebut ada
+        $lokasiGambar = 'assets/gambar/' . $namaFile; 
+        if (file_exists($lokasiGambar)) {
+            unlink($lokasiGambar); // Hapus file gambar
+        }
         $this->db->delete('masyarakat', ['id' => $id]);
     } 
 
@@ -42,7 +62,8 @@ class M_admin extends CI_Model
     public function selesai($id) 
     {
         $data = [
-            'status' => 'selesai'
+            'status' => 'selesai',
+            'penyelesaian' => $this->input->post('penyelesaian')
         ];
 
         $this->db->where('id', $id);

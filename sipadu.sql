@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2023 at 02:08 AM
+-- Generation Time: Dec 06, 2023 at 03:56 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -74,8 +74,8 @@ CREATE TABLE `masyarakat` (
 --
 
 INSERT INTO `masyarakat` (`id`, `nik`, `nama`, `tgl_lahir`, `gender`, `wa`, `alamat`, `selfie`, `password`, `status`, `id_service`) VALUES
-(2, '3126982365906597', 'Mulyanti Aji Prasetiwi', '2023-09-26', 'Perempuan', '082258941502', 'Kampung Lohan, Desa Gempol Tanjung, Rawa Kenyot, Babad Kahuruan', 'profile.png', '$2y$10$BnDLLEs8MVMliTemqfqyruthI1SQ7oggZlV27yI/SlaD/elHlxrG.', 'verified', 4),
-(4, '3126982365906598', 'Mulyanti Aji Prasetyo', '2023-10-11', 'Laki-laki', '34343434', 'asdsasasas', 'profile.png', '$2y$10$BnDLLEs8MVMliTemqfqyruthI1SQ7oggZlV27yI/SlaD/elHlxrG.', 'verified', 0);
+(2, '3126982365906597', 'Mulyanti Aji Prasetiwi', '2023-09-26', 'Perempuan', '082258941502', 'Kampung Lohan, Desa Gempol Tanjung, Rawa Kenyot, Babad Kahuruan', 'profile.png', '$2y$10$BnDLLEs8MVMliTemqfqyruthI1SQ7oggZlV27yI/SlaD/elHlxrG.', 'verified', 5),
+(4, '3126982365906598', 'Mulyanti Aji Prasetyo', '2023-10-11', 'Laki-laki', '089856561209', 'Kampung Cupang, Desa Buang Langlang, Rawa Rontek, Babad Kahuripan', 'profile.png', '$2y$10$BnDLLEs8MVMliTemqfqyruthI1SQ7oggZlV27yI/SlaD/elHlxrG.', 'verified', 0);
 
 -- --------------------------------------------------------
 
@@ -90,6 +90,7 @@ CREATE TABLE `pengaduan` (
   `tgl_pengaduan` int(11) NOT NULL,
   `judul_pengaduan` varchar(30) NOT NULL,
   `isi_pengaduan` varchar(280) NOT NULL,
+  `penyelesaian` varchar(225) NOT NULL,
   `status` enum('ditinjau','diproses','selesai') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -97,12 +98,12 @@ CREATE TABLE `pengaduan` (
 -- Dumping data for table `pengaduan`
 --
 
-INSERT INTO `pengaduan` (`id`, `nik`, `nama`, `tgl_pengaduan`, `judul_pengaduan`, `isi_pengaduan`, `status`) VALUES
-(8, '3126982365906597', 'Mulyanti Aji Prasetiwi', 1698027004, 'Benih Padi Licin', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.', 'diproses'),
-(9, '3126982365906597', 'Mulyanti Aji Prasetiwi', 1698027028, 'Benih Padi Kering', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.', 'ditinjau'),
-(10, '3126982365906598', 'Mulyanti Aji Prasetyo', 1698027093, 'Benih Padi Meledak', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.', 'diproses'),
-(11, '3126982365906598', 'Mulyanti Aji Prasetyo', 1698027138, 'Benih Padi Busuk', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.', 'selesai'),
-(12, '3215140909090909', 'Rio Adrian Putra', 1698282350, 'Padi Meleot', 'Padi kekeringan', 'ditinjau');
+INSERT INTO `pengaduan` (`id`, `nik`, `nama`, `tgl_pengaduan`, `judul_pengaduan`, `isi_pengaduan`, `penyelesaian`, `status`) VALUES
+(8, '3126982365906597', 'Mulyanti Aji Prasetiwi', 1698027004, 'Benih Padi Licin', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.', '1.ditanam', 'ditinjau'),
+(9, '3126982365906597', 'Mulyanti Aji Prasetiwi', 1698027028, 'Benih Padi Meleot', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.', '2.dicabut', 'ditinjau'),
+(10, '3126982365906598', 'Mulyanti Aji Prasetyo', 1698027093, 'Benih Padi Meledak', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.', 'Meledak Ciputat', 'selesai'),
+(11, '3126982365906598', 'Mulyanti Aji Prasetyo', 1698027138, 'Benih Padi Busuk', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.', '', 'diproses'),
+(12, '3126982365906597', 'Mulyanti Aji Prasetiwi', 1701826931, 'Benih Padi Hurung', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.', '', 'diproses');
 
 -- --------------------------------------------------------
 
@@ -124,8 +125,8 @@ INSERT INTO `service` (`id`, `pelayanan`, `total`) VALUES
 (1, 'Sangat Puas', 9),
 (2, 'Cukup Puas', 19),
 (3, 'Puas', 7),
-(4, 'Tidak Puas', 5),
-(5, 'Kurang Puas', 10);
+(4, 'Tidak Puas', 4),
+(5, 'Kurang Puas', 11);
 
 --
 -- Indexes for dumped tables

@@ -488,7 +488,12 @@ body {
 #content main .table-data .order table tr td .status.reviewed {
 	background: var(--dark-grey);
 }
-
+#content main .table-data .order table tr td .status.success {
+	background: var(--green);
+}
+#content main .table-data .order table tr td .status.tuntas {
+	background: black;
+}
 
 #content main .table-data .todo {
 	flex-grow: 1;
