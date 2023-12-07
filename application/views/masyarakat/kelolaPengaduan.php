@@ -88,6 +88,13 @@
                             <td> : </td>
                             <td><?= $pd['isi_pengaduan']; ?></td>
                         </tr>
+                        <?php if ($pd['penyelesaian']) { ?>
+                        <tr>
+                            <td>Penyelesaian</td>
+                            <td> : </td>
+                            <td><?= $pd['penyelesaian']; ?></td>
+                        </tr>
+                         <?php   } ?>
                         <tr>
                             <td colspan="3" class="text-end" style="border-bottom: none; "> <a href="<?= base_url('Masyarakat/hapusPengaduan/') . $pd['id']; ?>" class="badge bg-danger">Hapus Pengaduan</a></td>
                         </tr>
